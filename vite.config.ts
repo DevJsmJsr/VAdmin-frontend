@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      "@": path.resolve(__dirname, "./src"),
       '~assets': path.resolve(__dirname, './src/assets'),
       '~components': path.resolve(__dirname, './src/components'),
       '~constants': path.resolve(__dirname, './src/constants'),
@@ -17,8 +18,7 @@ export default defineConfig({
       '~pages': path.resolve(__dirname, './src/pages'),
       '~routes': path.resolve(__dirname, './src/routes'),
       '~types': path.resolve(__dirname, './src/types'),
-      '~utils': path.resolve(__dirname, './src/utils'),
-      '~store': path.resolve(__dirname, './src/store')
+      '~utils': path.resolve(__dirname, './src/utils')
     }
   },
   server: { port: 3000, host: true },
