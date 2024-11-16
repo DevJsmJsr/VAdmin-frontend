@@ -1,5 +1,9 @@
 {
-  "labels": {},
+  "labels": {
+    "home":"Home",
+    "about":"About",
+    "team":"Team"
+  },
   "placeholders": {},
   "toasts": {}
 }

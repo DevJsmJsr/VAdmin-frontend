@@ -1,5 +1,10 @@
 {
-  "labels": {},
+  "labels": {
+    "home":"Inicio",
+    "about":"Que hacemos?",
+    "team":"Equipo"
+  },
   "placeholders": {},
-  "toasts": {}
+  "toasts": {},
+  "home":"Inicio"
 }

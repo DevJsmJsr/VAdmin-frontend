@@ -18,7 +18,7 @@ export default defineConfig({
       '~routes': path.resolve(__dirname, './src/routes'),
       '~types': path.resolve(__dirname, './src/types'),
       '~utils': path.resolve(__dirname, './src/utils'),
-      '~store': path.resolve(__dirname, './src/store')
+      '~lib': path.resolve(__dirname, './src/lib')
     }
   },
   server: { port: 3000, host: true },

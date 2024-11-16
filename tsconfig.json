@@ -37,6 +37,6 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/pages/public/HeaderLanding"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
