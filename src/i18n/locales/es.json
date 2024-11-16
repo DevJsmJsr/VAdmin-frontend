@@ -1,9 +1,26 @@
 {
   "labels": {
+    "free": "Gratis",
+    "traceability":"Trazabilidad!",
+    "get_started": "Comenzar ahora",
+    "month":"mes",
+    "vehicle":"vehiculo",
+    "app_name": "VAdmin",
+    "login": "login",
+    "status_vehicle":"te permite conocer el estado de tu",
     "home":"Inicio",
     "about":"Que hacemos?",
     "team":"Equipo",
+    "testimonial":"Cuando un auto llega a mi taller, es fácil conocer las reparaciones que ha tenido.",
+    "oil_change":"Cambio de aceite",
+    "johan_slogan":"Me divierto convirtiendo ideas en software!",
+    "juan_slogan":"Los datos dan un valor importante en la economia",
+    "belt_repair":"Reparación de correas",
+    "monthly_maintenance":"Mantenimiento mensual",
+    "easy_traceability":"LLevar una trazabilidad nunca fue mas sencillo.",
+    "status_auto_repair": "Cuando visites un taller, conocerás qué componentes se repararon y qué trabajos se le hicieron a tu auto.",
     "landing_hero_video": "Conoce las revisiones de tu vehiculo"
+
   },
   "placeholders": {},
   "toasts": {},

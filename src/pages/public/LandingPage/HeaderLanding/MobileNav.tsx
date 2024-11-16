@@ -8,11 +8,14 @@ import {
   SheetTrigger,
 } from "~components/ui/sheet";
 import { AlignJustify, Apple } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { Button } from "~components/ui/button";
+import { ROUTES } from "~routes/mapper";
 
 const MobileNav = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   return (
     <div className="md:hidden">
       <Sheet>
@@ -26,7 +29,13 @@ const MobileNav = () => {
           <nav className="flex flex-col mt-6 items-center gap-3 lg:gap-4">
             <Link to="#home">{t("labels.home")}</Link>
             <Link to="#about">{t("labels.about")}</Link>
-            <Link to="#team">{t("labels.team")}</Link>
+            <Button
+              onClick={() => {
+                navigate(ROUTES.LOGIN);
+              }}
+            >
+              {t("labels.get_started")}
+            </Button>
           </nav>
         </SheetContent>
       </Sheet>
