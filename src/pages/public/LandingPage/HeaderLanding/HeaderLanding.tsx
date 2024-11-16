@@ -6,7 +6,7 @@ import { Apple } from "lucide-react";
 
 const HeaderLanding = () => {
   return (
-    <header className="sticky top-0 w-full border-b">
+    <header className="fixed top-0 w-full z-[1] text-white">
       <div className="h-20 container flex items-center">
         <Link to={"/"} className="hidden md:flex">
           <Apple className="text-red-500"></Apple>
