@@ -13,11 +13,18 @@ const Routes = () => {
   const LandingPage = lazy(
     () => import('~pages/public/LandingPage/LandingPage')
   )
+  const LoginPage = lazy(
+    () => import('~pages/public/Login/Login')
+  )
 
   const router = createBrowserRouter([
     {
       path: ROUTES.ROOT,
       element: (<LandingPage />),
+    },
+    {
+      path: ROUTES.LOGIN,
+      element: (<LoginPage />),
     },
   ]);
   

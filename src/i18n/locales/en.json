@@ -2,7 +2,12 @@
   "labels": {
     "home":"Home",
     "about":"About",
-    "team":"Team"
+    "team":"Team",
+    "password": "Password",
+    "forgot_password": "Forgot your password?",
+    "dont_have_account": "Don´t have account?",
+    "sign_up": "Sign up",
+    "login_parragraph":"Enter your email below to login to your account"
   },
   "placeholders": {},
   "toasts": {}

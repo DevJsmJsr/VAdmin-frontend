@@ -12,10 +12,11 @@ import {
 import {
   Check,
   GitBranchPlusIcon,
-  LightbulbIcon,
   Linkedin,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import JohanProfile from "~assets/johan_profile.jpg"
+import JuanProfile from "~assets/juan_profile.jpg"
 
 export const HeroCards = () => {
   const { t } = useTranslation();
@@ -42,7 +43,7 @@ export const HeroCards = () => {
       <Card className="absolute right-[20px] top-4 w-80 flex flex-col justify-center items-center drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="mt-8 flex justify-center items-center pb-2">
           <img
-            src="https://i.pravatar.cc/150?img=58"
+            src={JohanProfile}
             alt="user avatar"
             className="absolute grayscale-[0%] -top-12 rounded-full w-24 h-24 aspect-square object-cover"
           />
@@ -143,13 +144,13 @@ export const HeroCards = () => {
       <Card className="absolute w-[350px] -right-[10px] bottom-[-40px]  drop-shadow-xl shadow-black/10 dark:shadow-white/10">
         <CardHeader className="mt-8 flex justify-center items-center pb-2">
           <img
-            src="https://i.pravatar.cc/150?img=58"
+            src={JuanProfile}
             alt="user avatar"
             className="absolute grayscale-[0%] -top-12 rounded-full w-24 h-24 aspect-square object-cover"
           />
           <CardTitle className="text-center">Juan S. Moncada</CardTitle>
           <CardDescription className="font-normal text-primary">
-            Economist & data analyst
+            Economist & data scientist
           </CardDescription>
         </CardHeader>
 

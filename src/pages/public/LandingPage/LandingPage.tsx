@@ -8,7 +8,6 @@ import landingVideo from "~assets/landing_video.mp4";
 
 const LandingPage = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   return (
     <>
