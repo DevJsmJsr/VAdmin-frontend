@@ -2,7 +2,8 @@
   "labels": {
     "home":"Inicio",
     "about":"Que hacemos?",
-    "team":"Equipo"
+    "team":"Equipo",
+    "landing_hero_video": "Conoce las revisiones de tu vehiculo"
   },
   "placeholders": {},
   "toasts": {},

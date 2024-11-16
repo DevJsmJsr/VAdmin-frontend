@@ -24,9 +24,9 @@ const MobileNav = () => {
             <Apple className="text-red-500"></Apple>
           </Link>
           <nav className="flex flex-col mt-6 items-center gap-3 lg:gap-4">
-            <Link to={"/home"}>{t("labels.home")}</Link>
-            <Link to={"/about"}>{t("labels.about")}</Link>
-            <Link to={"/team"}>{t("labels.team")}</Link>
+            <Link to="#home">{t("labels.home")}</Link>
+            <Link to="#about">{t("labels.about")}</Link>
+            <Link to="#team">{t("labels.team")}</Link>
           </nav>
         </SheetContent>
       </Sheet>

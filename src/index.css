@@ -56,6 +56,10 @@
     --chart-5: 340 75% 55%
   }
 }
+
+.video{
+  filter: contrast(140%) brightness(90%);
+}
 ::-webkit-scrollbar {
   height: 7.5px;
   width: 8px;
@@ -71,6 +75,10 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(146, 146, 146);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer base {

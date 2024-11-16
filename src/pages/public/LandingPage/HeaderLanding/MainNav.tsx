@@ -8,9 +8,9 @@ const MainNav = () => {
   return (
     <div className="hidden md:flex">
       <nav className="flex items-center gap-3 lg:gap-4 ml-8">
-        <Link to={"/home"}>{t("labels.home")}</Link>
-        <Link to={"/about"}>{t("labels.about")}</Link>
-        <Link to={"/team"}>{t("labels.team")}</Link>
+        <Link to="#home">{t("labels.home")}</Link>
+        <Link to="#about">{t("labels.about")}</Link>
+        <Link to="#team">{t("labels.team")}</Link>
       </nav>
     </div>
   );
