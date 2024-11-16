@@ -5,10 +5,11 @@ import HeaderLanding from "./HeaderLanding/HeaderLanding";
 import { Button } from "~components/ui/button";
 import { HeroCards } from "~components/ui/herocards";
 import landingVideo from "~assets/landing_video.mp4";
+import { ROUTES } from "~routes/mapper";
 
 const LandingPage = () => {
   const { t } = useTranslation();
-
+  const navigate = useNavigate();
   return (
     <>
       <HeaderLanding />
@@ -49,9 +50,13 @@ const LandingPage = () => {
               {t("labels.status_auto_repair")}
             </p>
             <div className="space-y-4 md:space-y-0 md:space-x-4">
-              <Button className="w-full md:w-1/3">
-                {t("labels.get_started")}
-              </Button>
+            <Button
+              onClick={() => {
+                navigate(ROUTES.LOGIN);
+              }}
+            >
+              {t("labels.get_started")}
+            </Button>
             </div>
           </div>
           <div className="z-10">
