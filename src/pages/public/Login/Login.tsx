@@ -13,9 +13,35 @@ import { Label } from "~components/ui/label";
 import AppLogoInverse from "~assets/vadmin_black.svg";
 import LoginBackground from "~assets/login_background.svg";
 import { useTranslation } from "react-i18next";
+import InputHandler from "~components/ui/input-handler";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { loginInputs, LoginSchema } from "./LoginData";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "~components/ui/form";
 
 const Login = () => {
   const { t } = useTranslation();
+  const form = useForm({
+    resolver: zodResolver(LoginSchema),
+    defaultValues:{
+      email:"",
+      password:""
+    }
+  });
+  
+  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    console.log(values);
+  };
+
   return (
     <div
       className="flex items-center justify-center h-screen bg-cover bg-center"
@@ -33,29 +59,34 @@ const Login = () => {
           <CardDescription>{t("labels.login_parragraph")}</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="juanmecanico@ejemplo.com"
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <div className="flex items-center">
-                <Label htmlFor="password">{t("labels.password")}</Label>
-                <Link to="#" className="ml-auto inline-block text-sm underline">
-                  {t("labels.forgot_password")}
-                </Link>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+              <div className="grid gap-4">
+                <div className="grid gap-2">
+                {loginInputs().map((input) => (
+                    <InputHandler
+                      {...input}
+                      key={input.id}
+                      control={form.control}
+                    />
+                  ))}
+                </div>
+                <div className="grid gap-2">
+                  <div className="flex items-center">
+                    <Link
+                      to="#"
+                      className="ml-auto inline-block text-sm underline"
+                    >
+                      {t("labels.forgot_password")}
+                    </Link>
+                  </div>
+                </div>
+                <Button type="submit" className="w-full">
+                  {t("labels.send")}
+                </Button>
               </div>
-              <Input id="password" type="password" required />
-            </div>
-            <Button type="submit" className="w-full">
-              {t("labels.send")}
-            </Button>
-          </div>
+            </form>
+          </Form>
           <div className="mt-4 text-center text-sm">
             {t("labels.dont_have_account")}{" "}
             <Link to="#" className="underline">
