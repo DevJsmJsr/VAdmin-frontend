@@ -18,26 +18,18 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { loginInputs, LoginSchema } from "./LoginData";
 import { z } from "zod";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "~components/ui/form";
+import { Form } from "~components/ui/form";
 
 const Login = () => {
   const { t } = useTranslation();
   const form = useForm({
     resolver: zodResolver(LoginSchema),
-    defaultValues:{
-      email:"",
-      password:""
-    }
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
-  
+
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
     console.log(values);
   };
@@ -56,14 +48,14 @@ const Login = () => {
               className="w-[12rem] h-24"
             />
           </CardTitle>
-          <CardDescription>{t("labels.login_parragraph")}</CardDescription>
+          <CardDescription>{t("labels.login_paragraph")}</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
               <div className="grid gap-4">
                 <div className="grid gap-2">
-                {loginInputs().map((input) => (
+                  {loginInputs().map((input) => (
                     <InputHandler
                       {...input}
                       key={input.id}

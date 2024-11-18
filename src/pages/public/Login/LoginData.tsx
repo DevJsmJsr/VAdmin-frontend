@@ -15,15 +15,13 @@ export const loginInputs = ()=>[
     label: 'labels.email',
     type: 'text',
     name: 'email',
-    placeholder: 'placeholders.email',
-    design: 'col-12 col-md-6'
+    placeholder: 'placeholders.email'
   },
   {
     id:'password',
     label: 'labels.password',
-    type: 'text',
+    type: 'password',
     name: 'password',
-    placeholder: 'placeholders.password',
-    design: 'col-12 col-md-6'
+    placeholder: 'placeholders.password'
   },
 ]

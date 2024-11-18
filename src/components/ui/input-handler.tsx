@@ -1,20 +1,26 @@
-import { FormControl, FormField, FormItem, FormLabel,
-  FormDescription, FormMessage } from "./form";
-import { type Control } from 'react-hook-form';
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormDescription,
+  FormMessage,
+} from "./form";
+import { type Control } from "react-hook-form";
 import { Input } from "./input";
 import { useTranslation } from "react-i18next";
 
 export type InputTypeOptions =
-  | 'text'
-  | 'number'
-  | 'date'
-  | 'datetime-local'
-  | 'password'
-  | 'checkbox'
-  | 'text-area'
-  | 'select'
-  | 'dropzone'
-  | 'switch';
+  | "text"
+  | "number"
+  | "date"
+  | "datetime-local"
+  | "password"
+  | "checkbox"
+  | "text-area"
+  | "select"
+  | "dropzone"
+  | "switch";
 
 export interface InputHandlerProps {
   id?: string | number;
@@ -43,7 +49,7 @@ const InputHandler = ({
   descriptionInput,
   control,
 }: InputHandlerProps) => {
-  const {t}= useTranslation()
+  const { t } = useTranslation();
   return (
     <FormField
       control={control}
@@ -56,7 +62,17 @@ const InputHandler = ({
               <Input
                 {...field}
                 type={type}
-                placeholder={placeholder}
+                placeholder={t(placeholder!)}
+                disabled={disabled}
+              />
+            );
+            break;
+          case "password":
+            InputDisplayed = (
+              <Input
+                {...field}
+                type={type}
+                placeholder={t(placeholder!)}
                 disabled={disabled}
               />
             );
@@ -64,18 +80,6 @@ const InputHandler = ({
           case "number":
           case "date":
           /* case "datetime-local":
-          case "password":
-            InputDisplayed = (
-              <Input
-                {...field}
-                type={type}
-                placeholder={placeholder}
-                disabled={disabled}
-                isMulti={isMulti}
-                required={rules?.required?.value ?? false}
-              />
-            );
-            break;
           case "checkbox":
             InputDisplayed = (
               <InputCheckbox
@@ -168,11 +172,9 @@ const InputHandler = ({
         }
         return (
           <FormItem>
-            <FormLabel>{t(label)}</FormLabel>
+            {label && <FormLabel>{t(label)}</FormLabel>}
             <FormControl>{InputDisplayed}</FormControl>
-            <FormDescription>
-              {descriptionInput}
-            </FormDescription>
+            <FormDescription>{descriptionInput}</FormDescription>
             <FormMessage />
           </FormItem>
         );

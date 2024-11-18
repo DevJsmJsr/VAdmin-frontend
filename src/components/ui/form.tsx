@@ -12,6 +12,7 @@ import {
 
 import { cn } from "~lib/utils"
 import { Label } from "~components/ui/label"
+import { useTranslation } from "react-i18next"
 
 const Form = FormProvider
 
@@ -43,7 +44,7 @@ const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext)
   const itemContext = React.useContext(FormItemContext)
   const { getFieldState, formState } = useFormContext()
-
+  const {t} = useTranslation()
   const fieldState = getFieldState(fieldContext.name, formState)
 
   if (!fieldContext) {
@@ -93,7 +94,7 @@ const FormLabel = React.forwardRef<
   return (
     <Label
       ref={ref}
-      className={cn(error && "text-destructive", className)}
+      className={cn(className)}
       htmlFor={formItemId}
       {...props}
     />
