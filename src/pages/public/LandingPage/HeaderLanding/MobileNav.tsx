@@ -11,7 +11,7 @@ import { AlignJustify, Apple } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "~components/ui/button";
-import { ROUTES } from "~routes/mapper";
+import { ROUTES } from "~constants/appRoutes";
 
 const MobileNav = () => {
   const { t } = useTranslation();

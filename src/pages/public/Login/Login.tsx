@@ -8,8 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "~components/ui/card";
-import { Input } from "~components/ui/input";
-import { Label } from "~components/ui/label";
 import AppLogoInverse from "~assets/vadmin_black.svg";
 import LoginBackground from "~assets/login_background.svg";
 import { useTranslation } from "react-i18next";
@@ -19,6 +17,12 @@ import { useForm } from "react-hook-form";
 import { loginInputs, LoginSchema } from "./LoginData";
 import { z } from "zod";
 import { Form } from "~components/ui/form";
+import { getUserValidation } from "./loginRequest";
+
+export interface LoginDataProps {
+  email: string;
+  password: string;
+}
 
 const Login = () => {
   const { t } = useTranslation();
@@ -31,7 +35,7 @@ const Login = () => {
   });
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-    console.log(values);
+    getUserValidation(values)
   };
 
   return (

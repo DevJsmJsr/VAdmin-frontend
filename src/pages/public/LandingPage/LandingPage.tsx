@@ -5,7 +5,7 @@ import HeaderLanding from "./HeaderLanding/HeaderLanding";
 import { Button } from "~components/ui/button";
 import { HeroCards } from "~components/ui/herocards";
 import landingVideo from "~assets/landing_video.mp4";
-import { ROUTES } from "~routes/mapper";
+import { ROUTES } from "~constants/appRoutes";
 
 const LandingPage = () => {
   const { t } = useTranslation();

@@ -1,13 +1,13 @@
 import React from 'react';
 import Lottie from 'lottie-react';
 import { Suspense } from 'react';
-import { lazy, type LazyExoticComponent } from 'react';
+import { lazy } from 'react';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import AppLoader from '~assets/loader.json';
-import { ROUTES } from './mapper';
+import { ROUTES } from '~constants/appRoutes';
 
 const Routes = () => {
   const LandingPage = lazy(

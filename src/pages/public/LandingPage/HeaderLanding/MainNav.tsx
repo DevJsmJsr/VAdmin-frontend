@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "~components/ui/button";
-import { ROUTES } from "~routes/mapper";
+import { ROUTES } from "~constants/appRoutes";
 
 const MainNav = () => {
   const { t } = useTranslation();

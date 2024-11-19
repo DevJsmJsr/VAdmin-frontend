@@ -4,7 +4,7 @@ import { omit } from 'lodash';
 import { type ApisAvailable } from '~constants/index';
 import { useLocalStorage } from '~hooks/index';
 import { type ErrorType, useAppStorage } from '~store/useStore';
-import { cleanObject } from '~utils/index';
+import { cleanObject } from '~lib/utils';
 
 export interface RequestParams {
   length?: number;

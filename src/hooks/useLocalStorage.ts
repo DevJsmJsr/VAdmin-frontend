@@ -40,14 +40,6 @@ const useLocalStorage = () => {
 
   const userAccess = decryptUserData(localStorage.getItem(app)!)?.access;
 
-  const recaptcha = localStorage.getItem('recaptcha') ?? '';
-
-  const setRecaptcha = (token: string) => {
-    localStorage.setItem('recaptcha', token);
-  };
-
-  const removeRecaptcha = () => localStorage.removeItem('recaptcha');
-
   const updateUserData = (newUserData = {}) => {
     const prevUserData = decryptUserData(localStorage.getItem(app)!) || {};
     const updatedUserData = { ...prevUserData, ...newUserData };
@@ -58,9 +50,6 @@ const useLocalStorage = () => {
     userData,
     userAccess,
     userPermissions,
-    recaptcha,
-    setRecaptcha,
-    removeRecaptcha,
     updateUserData
   };
 };

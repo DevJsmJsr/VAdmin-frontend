@@ -19,6 +19,7 @@
       "~routes/*": ["routes/*"],
       "~types/*": ["types/*"],
       "~utils/*": ["utils/*"],
+      "~store/*": ["store/*"],
       "~lib/*": ["lib/utils"]
     },
 
