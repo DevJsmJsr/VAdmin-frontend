@@ -20,7 +20,7 @@ import { Form } from "~components/ui/form";
 import { getUserValidation } from "./loginRequest";
 
 export interface LoginDataProps {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -29,13 +29,13 @@ const Login = () => {
   const form = useForm({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-    getUserValidation(values)
+    getUserValidation(t, values)
   };
 
   return (
