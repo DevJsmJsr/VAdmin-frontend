@@ -5,6 +5,7 @@ const publicRoutes = {
 
 const privateRoutes = {
   PLATFORM: '/platform',
+  HOME: '/home',
 };
 
 export const ROUTES = {

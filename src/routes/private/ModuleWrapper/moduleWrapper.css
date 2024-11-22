@@ -1,0 +1,18 @@
+.moduleWrapper {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.moduleWrapper_titleContainer .title {
+  font-size: 25px !important;
+  font-weight: 700 !important;
+  margin: 0;
+  color: var(--red-primary);
+}
+
+.moduleWrapper_titleContainer {
+  height: 3vh;
+  margin-bottom: 1rem;
+}
