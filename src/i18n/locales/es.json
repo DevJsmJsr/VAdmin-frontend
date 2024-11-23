@@ -26,6 +26,7 @@
     "forgot_password": "Olvido su contraseña?",
     "dont_have_account": "No tiene una cuenta?",
     "sign_up": "Registrese",
+    "logout": "Cerrar sesión",
     "login_paragraph":"Ingrese su correo electrónico a continuación para iniciar sesión en su cuenta"
   },
   "placeholders": {

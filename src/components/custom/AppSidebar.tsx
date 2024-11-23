@@ -1,19 +1,34 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
-import { Sidebar,
+import {
+  Calendar,
+  Home,
+  Inbox,
+  LogOut,
+  Search,
+  Settings,
+  CarFrontIcon,
+} from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import {
+  Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem, } from "~components/ui/sidebar"
- 
+  SidebarMenuItem,
+} from "~components/ui/sidebar";
+
 export function AppSidebar() {
+  const { t } = useTranslation();
   const items = [
     {
-      title: "Home",
-      url: "#",
-      icon: Home,
+      title: "Iniciar Revision",
+      url: "start-check/",
+      icon: CarFrontIcon,
     },
     {
       title: "Inbox",
@@ -35,21 +50,22 @@ export function AppSidebar() {
       url: "#",
       icon: Settings,
     },
-  ]
+  ];
   return (
     <Sidebar>
+      <SidebarHeader></SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("label.revision")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link to={item.url}>
                       <item.icon />
-                      <span>{item.title}</span>
-                    </a>
+                      {item.title}
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
@@ -57,6 +73,18 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton asChild>
+              <a href={"logout"}>
+                <LogOut />
+                <span>{t("labels.logout")}</span>
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
-  )
+  );
 }
