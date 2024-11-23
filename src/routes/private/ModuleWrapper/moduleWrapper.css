@@ -1,5 +1,4 @@
 .moduleWrapper {
-  background-color: red;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -14,5 +13,12 @@
 
 .moduleWrapper_titleContainer {
   height: 3vh;
+  margin-top: unset;
   margin-bottom: 1rem;
+}
+
+.moduleWrapper_childrenContainer {
+  height: 85vh !important;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

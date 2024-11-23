@@ -21,13 +21,14 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "~components/ui/sidebar";
+import { ROUTES } from "~constants/appRoutes";
 
 export function AppSidebar() {
   const { t } = useTranslation();
   const items = [
     {
-      title: "Iniciar Revision",
-      url: "start-check/",
+      title: "labels.start_checking",
+      url: ROUTES.CAR_CHECKING,
       icon: CarFrontIcon,
     },
     {
@@ -56,7 +57,7 @@ export function AppSidebar() {
       <SidebarHeader></SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>{t("label.revision")}</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("labels.check")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -64,7 +65,7 @@ export function AppSidebar() {
                   <SidebarMenuButton asChild>
                     <Link to={item.url}>
                       <item.icon />
-                      {item.title}
+                      {t(item.title)}
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>

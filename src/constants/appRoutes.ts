@@ -5,6 +5,7 @@ const publicRoutes = {
 
 const privateRoutes = {
   PLATFORM: '/platform',
+  CAR_CHECKING: '/platform/car-checking',
   HOME: '/home',
 };
 

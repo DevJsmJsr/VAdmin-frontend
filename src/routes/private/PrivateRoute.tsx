@@ -12,7 +12,7 @@ interface Props extends React.PropsWithChildren {
 
 const PrivateRoute = ({ module, children }: Props) => {
   const { userData } = useLocalStorage();
-
+  
   return (
     <>
       {userData ? (

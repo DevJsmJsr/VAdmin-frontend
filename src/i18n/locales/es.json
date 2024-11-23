@@ -27,6 +27,8 @@
     "dont_have_account": "No tiene una cuenta?",
     "sign_up": "Registrese",
     "logout": "Cerrar sesión",
+    "check": "Revision",
+    "start_checking": "Iniciar revision",
     "login_paragraph":"Ingrese su correo electrónico a continuación para iniciar sesión en su cuenta"
   },
   "placeholders": {
@@ -34,5 +36,8 @@
     "password":"Contraseña"
   },
   "toasts": {},
-  "home":"Inicio"
+  "routes":{
+    "home": "Inicio",
+    "car_checking": "Revision automovil"
+  }
 }
