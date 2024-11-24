@@ -11,6 +11,7 @@
     "login": "login",
     "status_vehicle":"te permite conocer el estado de tu",
     "home":"Inicio",
+    "property_card": "Tarjeta de propiedad",
     "about":"Que hacemos?",
     "team":"Equipo",
     "testimonial":"Cuando un auto llega a mi taller, es fácil conocer las reparaciones que ha tenido.",
@@ -28,6 +29,8 @@
     "sign_up": "Registrese",
     "logout": "Cerrar sesión",
     "check": "Revisión",
+    "dropzone_valid_file": "Archivos validos",
+    "dropzone_file_loaded": "Archivo cargado",
     "start_checking": "Iniciar revisión",
     "login_paragraph":"Ingrese su correo electrónico a continuación para iniciar sesión en su cuenta"
   },
@@ -38,6 +41,6 @@
   "toasts": {},
   "routes":{
     "home": "Inicio",
-    "car_checking": "revisión automovil"
+    "car_checking": "Revisión automovil"
   }
 }

@@ -6,6 +6,7 @@ import {
   Search,
   Settings,
   CarFrontIcon,
+  BookCheckIcon,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
@@ -30,12 +31,12 @@ export function AppSidebar() {
     {
       title: "labels.start_checking",
       url: ROUTES.CAR_CHECKING,
-      icon: CarFrontIcon,
+      icon: BookCheckIcon,
     },
     {
-      title: "Inbox",
+      title: "Vehiculos",
       url: "#",
-      icon: Inbox,
+      icon: CarFrontIcon,
     },
     {
       title: "Calendar",

@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import { CommonInputProps } from "../InputTypes";
 import "./inputDropzone.scss";
 import { UploadCloudIcon } from "lucide-react";
-import { Label } from "~components/ui/label";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const FILE_EXTENSIONS = {
@@ -49,7 +48,7 @@ const InputDropzone = ({
   }, [fileSelected]);
 
   return (
-    <div className={design}>
+    <>
       <div className={`customInput ${disabled ? "customInput_disabled" : ""}`}>
         <Dropzone
           disabled={disabled}
@@ -77,11 +76,11 @@ const InputDropzone = ({
               <div className="d-flex flex-column justify-content-center">
                 {!fileSelected ? (
                   <div>
-                    {t("components.input_dropzone_extensions")}
+                    {t("labels.dropzone_valid_file")}
                     <span className="ps-1 fw-bold">{'extensions'}</span>
                   </div>
                 ) : (
-                  t("components.input_dropzone_file_loaded")
+                  t("labels.dropzone_file_loaded")
                 )}
 
                 {fileSelected && (
@@ -111,7 +110,7 @@ const InputDropzone = ({
           <p className="customInput_error">{t(hookError?.message)}</p>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
