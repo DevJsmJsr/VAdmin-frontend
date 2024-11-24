@@ -25,7 +25,6 @@ export const useAppStorage = create<AppStorage>()((set) => ({
     } else if (error?.Error) {
       errorToDisplay = { code: 'bhError', detail: error?.Error };
     }
-
     set({ errorRequest: errorToDisplay });
   },
   saveServerError: () =>

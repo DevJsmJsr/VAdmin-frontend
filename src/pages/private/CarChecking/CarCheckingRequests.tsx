@@ -24,12 +24,12 @@ export const validatePCRequest = (t: TFunction, data: ValidatePCProps) => {
     data,
     thenFunction: (res) => {
       if (res.status === 200) {
-        debugger
+        toast.success(t('labels.pc_loaded_completed'));
+        requestFinalized()
       }
     },
     catchFunction: ({ detail }) => {
-      requestFinalized();
-      toast.error(t(`toasts.${detail}`));
+      toast.error(detail);
     }
   });
 };

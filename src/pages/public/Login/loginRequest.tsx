@@ -37,14 +37,14 @@ export const getUserValidation = (t: TFunction, data: LoginDataProps) => {
           },
           catchFunction: ({ detail }) => {
             requestFinalized();
-            toast.error(t(`toasts.${detail}`));
+            toast.error(detail);
           }
         });
       }
     },
     catchFunction: ({ detail }) => {
       requestFinalized();
-      toast.error(t(`toasts.${detail}`));
+      toast.error(detail);
     }
   });
 };

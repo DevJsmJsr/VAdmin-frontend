@@ -24,7 +24,6 @@ const CarChecking = () => {
   });
 
   const onSubmitStartChecking = (data: z.infer<typeof StartCheckingSchema>) => {
-    debugger;
     let formData = new FormData();
     formData.append('pcFile', data.propertyCard);
     validatePCRequest(t, formData)
