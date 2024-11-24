@@ -44,6 +44,7 @@ const useLocalStorage = () => {
     const prevUserData = decryptUserData(localStorage.getItem(app)!) || {};
     const updatedUserData = { ...prevUserData, ...newUserData };
     localStorage.setItem(app, encryptUserData(updatedUserData));
+    window.location.reload()
   };
 
   return {

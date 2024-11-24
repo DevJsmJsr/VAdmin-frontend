@@ -66,7 +66,7 @@ const InputHandler = ({
           case "text":
             InputDisplayed = (
               <Input
-                {...fieldObj}
+                {...field}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}
@@ -76,7 +76,7 @@ const InputHandler = ({
           case "password":
             InputDisplayed = (
               <Input
-                {...fieldObj}
+                {...field}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}

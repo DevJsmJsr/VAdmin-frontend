@@ -30,6 +30,8 @@
     "logout": "Cerrar sesión",
     "check": "Revisión",
     "dropzone_valid_file": "Archivos validos",
+    "dropzone_desc": "Seleccione un archivo",
+    "load": "Cargar",
     "dropzone_file_loaded": "Archivo cargado",
     "start_checking": "Iniciar revisión",
     "login_paragraph":"Ingrese su correo electrónico a continuación para iniciar sesión en su cuenta"

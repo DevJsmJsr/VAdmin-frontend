@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { CommonInputProps } from "../InputTypes";
 import "./inputDropzone.scss";
-import { UploadCloudIcon } from "lucide-react";
+import { HardDriveUploadIcon, UploadCloudIcon } from "lucide-react";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const FILE_EXTENSIONS = {
@@ -33,7 +33,6 @@ interface Props extends CommonInputProps {
 const InputDropzone = ({
   extensions,
   disabled = false,
-  design = "col-12",
   hookError,
   hookOnChange = () => {},
   onInputChange = () => {},
@@ -61,51 +60,45 @@ const InputDropzone = ({
           noDrag
         >
           {({ getRootProps, getInputProps }) => (
-            <div
-              className={`inputDropzone d-flex gap-2 ${
-                disabled ? "inputDropzone_disabled" : ""
-              }`}
-            >
-              <div
-                className="inputDropzone_trigger items_row_centered"
-                {...getRootProps()}
-              >
-                <UploadCloudIcon size={10} />
-                <input {...getInputProps()} hidden />
+            <div className="ml_dropzone" {...getRootProps()}>
+              <div className="d-flex flex-column align-items-center mb-3">
+                <p className="text-center ml_dropzone_desc">
+                  {t("labels.dropzone_desc")}
+                </p>
+                <p className="text-center">
+                  {t("labels.dropzone_valid_file")}{" "}
+                  {Object.entries(extensions)
+                    .map(([_, values]) => {
+                      return `${values.join(", ")}`;
+                    })}
+                </p>
               </div>
-              <div className="d-flex flex-column justify-content-center">
-                {!fileSelected ? (
-                  <div>
-                    {t("labels.dropzone_valid_file")}
-                    <span className="ps-1 fw-bold">{'extensions'}</span>
-                  </div>
-                ) : (
-                  t("labels.dropzone_file_loaded")
-                )}
-
-                {fileSelected && (
-                  <div className="inputDropzone_thumb d-flex gap-2 align-items-center">
-                    <p>
-                      {fileSelected?.path} - {fileSize}MB
-                    </p>
-                    <button
-                      type="button"
-                      disabled={disabled}
-                      className="inputDropzone_thumb_btn"
-                      onClick={() => {
-                        setFileSelected(null);
-                        hookOnChange(null);
-                        onInputChange(null);
-                      }}
-                    >
-                      X
-                    </button>
-                  </div>
-                )}
-              </div>
+              <HardDriveUploadIcon size={60} strokeWidth={1} />
+              <input {...getInputProps()} hidden />
             </div>
           )}
         </Dropzone>
+        <div className="d-flex flex-column justify-content-center">
+          {fileSelected && (
+            <div className="inputDropzone_thumb d-flex gap-2 align-items-center">
+              <p>
+                {fileSelected?.path} - {fileSize}MB
+              </p>
+              <button
+                type="button"
+                disabled={disabled}
+                className="inputDropzone_thumb_btn"
+                onClick={() => {
+                  setFileSelected(null);
+                  hookOnChange(null);
+                  onInputChange(null);
+                }}
+              >
+                X
+              </button>
+            </div>
+          )}
+        </div>
         {hookError?.message && (
           <p className="customInput_error">{t(hookError?.message)}</p>
         )}

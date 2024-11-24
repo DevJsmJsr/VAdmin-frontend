@@ -12,10 +12,9 @@ interface Props extends React.PropsWithChildren {
 
 const PrivateRoute = ({ module, children }: Props) => {
   const { userData } = useLocalStorage();
-  
   return (
     <>
-      {userData ? (
+      {Object.entries(userData).length > 0 ? (
         <ModuleWrapper data={module}>{children}</ModuleWrapper>
       ) : (
         <Navigate to={ROUTES.ROOT} />

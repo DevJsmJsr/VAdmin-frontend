@@ -17,10 +17,10 @@ export const startCheckingFormInputs = () => [
   {
     id: "propertyCard",
     label: "labels.property_card",
-    name: "property_card",
+    name: "propertyCard",
     type: "dropzone",
     extensions: {
-      "image/*": []
+      "image/*": [".png", ".jpg", ".jpeg"]
     }
   },
 ];

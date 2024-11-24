@@ -7,6 +7,7 @@ import { useAppStorage } from '~store/useStore';
 import { LoginDataProps } from './Login';
 import { sendRequest } from '~lib/utils';
 import { DataProps } from '~hooks/useLocalStorage';
+import { APIS } from '~constants/apis';
 
 interface Token {
   access: string;
@@ -17,9 +18,8 @@ export const getUserValidation = (t: TFunction, data: LoginDataProps) => {
   const { updateUserData } = useLocalStorage();
   const { doingRequest, requestFinalized } = useAppStorage.getState();
   doingRequest();
-  debugger
   sendRequest<Token>({
-    url: '/api/token/',
+    url: APIS.AUTH_LOGIN,
     method: 'post',
     type: 'public',
     data,
@@ -27,7 +27,7 @@ export const getUserValidation = (t: TFunction, data: LoginDataProps) => {
       if (res.status === 200) {
         updateUserData(res.data);
         sendRequest<DataProps>({
-          url: '/api/core/users/',
+          url: APIS.CORE_USER,
           thenFunction: async (res) => {
             if (res.status === 200) {
               const newUserData = res.data;

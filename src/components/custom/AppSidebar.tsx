@@ -9,7 +9,7 @@ import {
   BookCheckIcon,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -27,6 +27,7 @@ import AppLogo from '~assets/vadmin_black.svg';
 
 export function AppSidebar() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const items = [
     {
       title: "labels.start_checking",
@@ -87,11 +88,11 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild>
-              <a href={"logout"}>
-                <LogOut />
-                <span>{t("labels.logout")}</span>
-              </a>
+            <SidebarMenuButton onClick={() => {
+                  localStorage.clear();
+                  navigate(ROUTES.LOGIN);
+                }}>
+                  <LogOut />{t("labels.logout")}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
