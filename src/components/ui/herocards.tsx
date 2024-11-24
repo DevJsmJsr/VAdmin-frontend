@@ -44,7 +44,7 @@ export const HeroCards = () => {
         <CardHeader className="mt-8 flex justify-center items-center pb-2">
           <img
             src={JohanProfile}
-            alt="user avatar"
+            alt="johan profile"
             className="absolute grayscale-[0%] -top-12 rounded-full w-24 h-24 aspect-square object-cover"
           />
           <CardTitle className="text-center">Johan Sanchez</CardTitle>
@@ -145,7 +145,7 @@ export const HeroCards = () => {
         <CardHeader className="mt-8 flex justify-center items-center pb-2">
           <img
             src={JuanProfile}
-            alt="user avatar"
+            alt="juan profile"
             className="absolute grayscale-[0%] -top-12 rounded-full w-24 h-24 aspect-square object-cover"
           />
           <CardTitle className="text-center">Juan S. Moncada</CardTitle>

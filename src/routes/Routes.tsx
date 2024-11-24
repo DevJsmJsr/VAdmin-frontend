@@ -1,9 +1,8 @@
 import React from "react";
-import Lottie from "lottie-react";
 import { Suspense } from "react";
 import { lazy } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AppLoader from "~assets/loader.json";
+import AppLoader from "~assets/loader.svg";
 import { ROUTES } from "~constants/appRoutes";
 import PrivateRoute from "./private/PrivateRoute";
 import PublicRoute from "./public/PublicRoute";
@@ -19,6 +18,7 @@ const Routes = () => {
 
   const Home = lazy(() => import("~pages/private/Home/Home"));
   const CarChecking = lazy(() => import("~pages/private/CarChecking/CarChecking"));
+  const ListCar = lazy(() => import("~pages/private/ListCars/ListCars"));
 
   const router = createBrowserRouter([
     {
@@ -57,6 +57,14 @@ const Routes = () => {
             </PrivateRoute>
           ),
         },
+        {
+          path: ROUTES.LIST_CARS,
+          element: (
+            <PrivateRoute module={{ title: "routes.car_checking" }}>
+              <ListCar/>
+            </PrivateRoute>
+          ),
+        },
       ],
     },
   ]);
@@ -65,7 +73,11 @@ const Routes = () => {
     <Suspense
       fallback={
         <div className="loadingContainer">
-          <Lottie animationData={AppLoader} loop={true} />
+          <img
+            src={AppLoader}
+            alt="vadmin logo"
+            className="w-[18rem] h-24"
+          />
         </div>
       }
     >

@@ -21,14 +21,14 @@
     "monthly_maintenance":"Mantenimiento mensual",
     "easy_traceability":"LLevar una trazabilidad nunca fue mas sencillo.",
     "status_auto_repair": "Cuando visites un taller, conocerás qué componentes se repararon y qué trabajos se le hicieron a tu auto.",
-    "landing_hero_video": "Conoce las revisiones de tu vehiculo",
+    "landing_hero_video": "Conoce las revisiónes de tu vehiculo",
     "password": "Contraseña",
     "forgot_password": "Olvido su contraseña?",
     "dont_have_account": "No tiene una cuenta?",
     "sign_up": "Registrese",
     "logout": "Cerrar sesión",
-    "check": "Revision",
-    "start_checking": "Iniciar revision",
+    "check": "Revisión",
+    "start_checking": "Iniciar revisión",
     "login_paragraph":"Ingrese su correo electrónico a continuación para iniciar sesión en su cuenta"
   },
   "placeholders": {
@@ -38,6 +38,6 @@
   "toasts": {},
   "routes":{
     "home": "Inicio",
-    "car_checking": "Revision automovil"
+    "car_checking": "revisión automovil"
   }
 }

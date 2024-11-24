@@ -6,6 +6,7 @@ const publicRoutes = {
 const privateRoutes = {
   PLATFORM: '/platform',
   CAR_CHECKING: '/platform/car-checking',
+  LIST_CARS: '/platform/list-cars',
   HOME: '/home',
 };
 

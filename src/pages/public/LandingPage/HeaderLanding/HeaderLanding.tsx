@@ -12,7 +12,7 @@ const HeaderLanding = () => {
         <Link to={"/"} className="hidden md:flex">
         <img
             src={AppLogo}
-            alt="user avatar"
+            alt="vadmin logo"
             className="w-[12rem] h-24"
           />
         </Link>

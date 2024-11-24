@@ -48,7 +48,7 @@ const Login = () => {
           <CardTitle className="text-2xl">
             <img
               src={AppLogoInverse}
-              alt="user avatar"
+              alt="vadmin logo"
               className="w-[12rem] h-24"
             />
           </CardTitle>

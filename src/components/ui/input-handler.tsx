@@ -9,6 +9,8 @@ import {
 import { type Control } from "react-hook-form";
 import { Input } from "./input";
 import { useTranslation } from "react-i18next";
+import InputDropzone from "~components/custom/Inputs/InputDropzone/InputDropzone";
+import { FileWithPath } from "react-dropzone";
 
 export type InputTypeOptions =
   | "text"
@@ -34,8 +36,10 @@ export interface InputHandlerProps {
   isMulti?: boolean;
   disabled?: boolean;
   link?: string;
+  extensions?: { string: []; };
   design?: string;
   isHidden?: boolean;
+  onInputChange?: (value: string | boolean | FileWithPath | null) => void;
 }
 
 const InputHandler = ({
@@ -44,23 +48,25 @@ const InputHandler = ({
   label,
   placeholder,
   disabled = false,
-  isMulti = false,
   design,
+  extensions,
   descriptionInput,
   control,
+  onInputChange = () => {},
 }: InputHandlerProps) => {
   const { t } = useTranslation();
   return (
     <FormField
       control={control}
       name={name}
-      render={({ field }) => {
+      render={(fieldObj) => {
+        const { field, fieldState} = fieldObj
         let InputDisplayed: React.ReactNode;
         switch (type) {
           case "text":
             InputDisplayed = (
               <Input
-                {...field}
+                {...fieldObj}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}
@@ -70,7 +76,7 @@ const InputHandler = ({
           case "password":
             InputDisplayed = (
               <Input
-                {...field}
+                {...fieldObj}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}
@@ -79,6 +85,19 @@ const InputHandler = ({
             break;
           case "number":
           case "date":
+          case "dropzone":
+            InputDisplayed = (
+              <InputDropzone
+                name={name}
+                extensions={extensions}
+                disabled={disabled}
+                design={design}
+                hookOnChange={field.onChange}
+                hookError={fieldState.error}
+                onInputChange={onInputChange}
+              />
+            );
+            break;
           /* case "datetime-local":
           case "checkbox":
             InputDisplayed = (
@@ -134,21 +153,6 @@ const InputHandler = ({
                 hookOnChange={onChange}
                 onInputChange={onInputChange}
                 onEventChange={onEventChange}
-              />
-            );
-            break;
-          case "dropzone":
-            InputDisplayed = (
-              <InputDropzone
-                name={name}
-                label={label}
-                extensions={extensions}
-                disabled={disabled}
-                required={rules?.required?.value ?? false}
-                design={design}
-                hookError={error}
-                hookOnChange={onChange}
-                onInputChange={onInputChange}
               />
             );
             break;

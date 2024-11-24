@@ -8,7 +8,7 @@ import {
   CarFrontIcon,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Sidebar,
   SidebarContent,
@@ -22,6 +22,7 @@ import {
   SidebarMenuItem,
 } from "~components/ui/sidebar";
 import { ROUTES } from "~constants/appRoutes";
+import AppLogo from '~assets/vadmin_black.svg';
 
 export function AppSidebar() {
   const { t } = useTranslation();
@@ -54,7 +55,15 @@ export function AppSidebar() {
   ];
   return (
     <Sidebar>
-      <SidebarHeader></SidebarHeader>
+      <SidebarHeader>
+        <NavLink to={ROUTES.PLATFORM} className="m-auto">
+          <img
+            src={AppLogo}
+            alt="vadmin logo"
+            className="w-[12rem] h-24"
+          />
+        </NavLink>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel>{t("labels.check")}</SidebarGroupLabel>

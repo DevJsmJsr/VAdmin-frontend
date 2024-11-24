@@ -1,0 +1,42 @@
+.inputDropzone {
+  &_trigger {
+    background-color: var(--white);
+    border-radius: 5px;
+    width: 50px !important;
+    height: 50px !important;
+    border: 1px solid var(--app-primary-color);
+    cursor: pointer;
+    transition: all var(--animated-time) ease-in-out;
+    svg {
+      color: var(--app-primary-color) !important;
+      transition: all var(--animated-time) ease-in-out;
+    }
+    &:hover {
+      background-color: var(--app-primary-color);
+      svg {
+        color: var(--white) !important;
+      }
+    }
+  }
+  &_thumb {
+    background-color: var(--app-tertiary-color);
+    width: fit-content;
+    padding: 0.1rem 0.2rem;
+    border-radius: 5px;
+    border: 1px solid var(--app-primary-color);
+    &_btn {
+      border: none !important;
+      background-color: transparent;
+      font-weight: 700;
+      color: var(--app-primary-color);
+    }
+  }
+  &_disabled &_trigger {
+    pointer-events: none;
+    background-color: var(--gray-light);
+    border-color: var(--gray);
+    svg {
+      color: var(--gray) !important;
+    }
+  }
+}
