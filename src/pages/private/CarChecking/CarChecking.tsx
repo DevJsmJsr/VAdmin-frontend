@@ -11,22 +11,28 @@ import {
 import InputHandler from "~components/ui/input-handler";
 import { Button } from "~components/ui/button";
 import { validatePCRequest } from "./CarCheckingRequests";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "~constants/appRoutes";
 
 type FormData = z.infer<typeof StartCheckingSchema>;
 
 const CarChecking = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const form = useForm<FormData>({
     resolver: zodResolver(StartCheckingSchema),
     defaultValues: {
-      propertyCard: {} as File
-    }
+      propertyCard: {} as File,
+    },
   });
 
   const onSubmitStartChecking = (data: z.infer<typeof StartCheckingSchema>) => {
     let formData = new FormData();
-    formData.append('pcFile', data.propertyCard);
-    validatePCRequest(t, formData)
+    formData.append("pcFile", data.propertyCard);
+    const onSuccess = () => {
+      navigate(ROUTES.LIST_CARS);
+    };
+    validatePCRequest(t, formData, onSuccess);
   };
   return (
     <>
