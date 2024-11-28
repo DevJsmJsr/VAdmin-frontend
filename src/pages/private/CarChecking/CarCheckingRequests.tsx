@@ -9,17 +9,18 @@ interface AzureCode {
   azure_request_uuid: string;
 }
 interface AzurePCResponse {
-  name: string;
+  message: string;
+  number_plate: string;
+  person_name: string;
 }
 interface ValidatePCProps {}
 
+const USER_EXISTS = "A user with that username already exists.";
 export const validatePCRequest = (
   t: TFunction,
   data: ValidatePCProps,
   onSuccess = () => {}
 ) => {
-  const { doingRequest } = useAppStorage.getState();
-  doingRequest();
   sendRequest<AzureCode>({
     url: APIS.LOAD_PC,
     method: "post",
@@ -39,25 +40,31 @@ export const validatePCRequest = (
 };
 
 export const checkAzureRequest = (
-  t,
+  t: (arg0: string) => string,
   azure_request_uuid: string,
   onSuccess = () => {}
 ) => {
-  const { doingRequest, requestFinalized } = useAppStorage.getState();
-  doingRequest();
   sendRequest<AzurePCResponse>({
     url: APIS.CHECK_PC_AZURE,
     method: "get",
     params: { azure_request_uuid: azure_request_uuid },
     thenFunction: (res) => {
       if (res.status === 200) {
-        toast.success(t(res.data));
+        toast.success(t(res.data.message));
         onSuccess();
-        requestFinalized();
       }
     },
-    catchFunction: ({ detail }) => {
-      toast.error(detail);
+    catchFunction: (error) => {
+      debugger;
+      if (error?.username?.[0] === USER_EXISTS) {
+        toast.success(t(USER_EXISTS));
+        onSuccess();
+        return
+      }
+      const errorString = Object.entries(error)
+        .map(([key, messages]) => `${key}: ${messages.join(", ")}`)
+        .join("; ");
+      toast.error(errorString);
     },
   });
 };

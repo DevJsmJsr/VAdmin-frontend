@@ -13,12 +13,14 @@ import { Button } from "~components/ui/button";
 import { validatePCRequest } from "./CarCheckingRequests";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "~constants/appRoutes";
+import { useAppStorage } from "~store/useStore";
 
 type FormData = z.infer<typeof StartCheckingSchema>;
 
 const CarChecking = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { isDoingRequest } = useAppStorage.getState();
   const form = useForm<FormData>({
     resolver: zodResolver(StartCheckingSchema),
     defaultValues: {
@@ -41,7 +43,7 @@ const CarChecking = () => {
           {startCheckingFormInputs().map((input) => (
             <InputHandler {...input} key={input.id} control={form.control} />
           ))}
-          <Button type="submit" className="w-15">
+          <Button isDoingRequest={isDoingRequest} type="submit" className="w-15">
             {t("labels.load")}
           </Button>
         </form>
