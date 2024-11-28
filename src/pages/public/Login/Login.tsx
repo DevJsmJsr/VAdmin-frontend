@@ -18,6 +18,7 @@ import { loginInputs, LoginSchema } from "./LoginData";
 import { z } from "zod";
 import { Form } from "~components/ui/form";
 import { getUserValidation } from "./loginRequest";
+import { useAppStorage } from '~store/useStore';
 
 export interface LoginDataProps {
   username: string;
@@ -26,6 +27,7 @@ export interface LoginDataProps {
 
 const Login = () => {
   const { t } = useTranslation();
+  const { isDoingRequest } = useAppStorage.getState();
   const form = useForm({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -77,7 +79,7 @@ const Login = () => {
                     </Link>
                   </div>
                 </div>
-                <Button type="submit" className="w-full">
+                <Button isDoingRequest={isDoingRequest} type="submit" className="w-full">
                   {t("labels.send")}
                 </Button>
               </div>

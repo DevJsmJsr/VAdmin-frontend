@@ -16,8 +16,6 @@ interface Token {
 
 export const getUserValidation = (t: TFunction, data: LoginDataProps) => {
   const { updateUserData } = useLocalStorage();
-  const { doingRequest, requestFinalized } = useAppStorage.getState();
-  doingRequest();
   sendRequest<Token>({
     url: APIS.AUTH_LOGIN,
     method: 'post',
@@ -32,19 +30,19 @@ export const getUserValidation = (t: TFunction, data: LoginDataProps) => {
             if (res.status === 200) {
               const newUserData = res.data;
               updateUserData(newUserData);
-              requestFinalized();
             }
           },
           catchFunction: ({ detail }) => {
-            requestFinalized();
             toast.error(detail);
           }
         });
       }
     },
-    catchFunction: ({ detail }) => {
-      requestFinalized();
-      toast.error(detail);
+    catchFunction: (error) => {
+      if(error){
+        toast.error(error?.detail);
+      }
+      
     }
   });
 };

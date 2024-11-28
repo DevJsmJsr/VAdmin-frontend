@@ -7,6 +7,7 @@ import {
   Settings,
   CarFrontIcon,
   BookCheckIcon,
+  IdCard,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -30,9 +31,9 @@ export function AppSidebar() {
   const navigate = useNavigate();
   const items = [
     {
-      title: "labels.start_checking",
+      title: "labels.scan_card",
       url: ROUTES.CAR_CHECKING,
-      icon: BookCheckIcon,
+      icon: IdCard,
     },
     {
       title: "Vehiculos",

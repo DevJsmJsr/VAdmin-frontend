@@ -34,6 +34,7 @@
     "load": "Cargar",
     "dropzone_file_loaded": "Archivo cargado",
     "start_checking": "Iniciar revisión",
+    "scan_card": "Escanear tarjeta",
     "login_paragraph":"Ingrese su correo electrónico a continuación para iniciar sesión en su cuenta",
     "pc_loaded_completed": "Tarjeta de propiedad cargada, un modelo de IA procesara la informacion y sera redirgido.",
     "pc_scan_ok": "Tarjeta de propiedad scaneada correctamente."
@@ -45,6 +46,7 @@
   "toasts": {},
   "routes":{
     "home": "Inicio",
-    "car_checking": "Revisión automovil"
+    "car_checking": "Revisión automovil",
+    "scan_card": "Escanear tarjeta"
   }
 }

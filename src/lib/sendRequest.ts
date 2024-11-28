@@ -43,7 +43,7 @@ const sendRequest = async <T>({
 }: SendRequestProps<T>) => {
   const { userAccess } = useLocalStorage();
 
-  const { requestFinalized, saveUserError } = useAppStorage.getState();
+  const { doingRequest, requestFinalized, saveUserError } = useAppStorage.getState();
   const token = {
     private: `Bearer ${userAccess}`,
     public: `Token ${import.meta.env.VITE_PUBLIC_TOKEN}`,
@@ -86,16 +86,17 @@ const sendRequest = async <T>({
     }),
     ...extraConfig
   });
-
+  doingRequest();
   axios(config)
     .then((res: AxiosResponse<T, unknown>) => {
       thenFunction(res);
+      requestFinalized();
     })
     .catch((error: unknown) => {
       requestFinalized();
       const axiosError = error as CatchError;
-      catchFunction && catchFunction(axiosError.response?.data);
-      saveUserError(axiosError.response.data);
+      catchFunction && catchFunction(axiosError?.response?.data);
+      saveUserError(axiosError?.response?.data);
     });
 };
 

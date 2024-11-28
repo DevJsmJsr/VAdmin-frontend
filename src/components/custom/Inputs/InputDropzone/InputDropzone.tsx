@@ -24,7 +24,7 @@ export type FileExtensions =
 
 interface Props extends CommonInputProps {
   label?: string;
-  extensions: { string: [] };
+  extensions?: { string: [] };
   placeholder?: string;
   hookOnChange?: (value: FileWithPath | null) => void;
   onInputChange?: (value: FileWithPath | null) => void;
@@ -67,13 +67,13 @@ const InputDropzone = ({
                 </p>
                 <p className="text-center">
                   {t("labels.dropzone_valid_file")}{" "}
-                  {Object.entries(extensions)
+                  {Object.entries(extensions!)
                     .map(([_, values]) => {
                       return `${values.join(", ")}`;
                     })}
                 </p>
               </div>
-              <HardDriveUploadIcon size={60} strokeWidth={1} />
+              <HardDriveUploadIcon size={60} strokeWidth={1} className="animate-pulse"/>
               <input {...getInputProps()} hidden />
             </div>
           )}
@@ -99,9 +99,6 @@ const InputDropzone = ({
             </div>
           )}
         </div>
-        {hookError?.message && (
-          <p className="customInput_error">{t(hookError?.message)}</p>
-        )}
       </div>
     </>
   );
