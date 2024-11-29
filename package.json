@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:prod": "vite build --mode production --outDir './build/production/'",
+    "deploy:prod": "aws s3 rm s3://vadmin-frontend --recursive && aws s3 sync build/production s3://vadmin-frontend && aws cloudfront create-invalidation --distribution-id E374THRTG2WME0 --paths \"/*\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },

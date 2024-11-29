@@ -2,16 +2,14 @@ import React from "react";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "~components/ui/sheet";
-import { AlignJustify, Apple } from "lucide-react";
+import { AlignJustify } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "~components/ui/button";
 import { ROUTES } from "~constants/appRoutes";
+import AppLogo from '~assets/vadmin_black.svg';
 
 const MobileNav = () => {
   const { t } = useTranslation();
@@ -24,7 +22,11 @@ const MobileNav = () => {
         </SheetTrigger>
         <SheetContent side={"left"}>
           <Link to={"/"}>
-            <Apple className="text-red-500"></Apple>
+          <img
+            src={AppLogo}
+            alt="vadmin logo"
+            className="w-[12rem] h-24"
+          />
           </Link>
           <nav className="flex flex-col mt-6 items-center gap-3 lg:gap-4">
             <Link to="#home">{t("labels.home")}</Link>

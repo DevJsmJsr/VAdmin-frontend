@@ -2,7 +2,6 @@ import React from "react";
 import MainNav from "./MainNav";
 import MobileNav from "./MobileNav";
 import { Link } from "react-router-dom";
-import { Apple } from "lucide-react";
 import AppLogo from '~assets/vadmin.svg';
 
 const HeaderLanding = () => {
