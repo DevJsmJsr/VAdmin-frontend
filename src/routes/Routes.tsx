@@ -6,6 +6,7 @@ import AppLoader from "~assets/loader.svg";
 import { ROUTES } from "~constants/appRoutes";
 import PrivateRoute from "./private/PrivateRoute";
 import PublicRoute from "./public/PublicRoute";
+import { Loader2 } from "lucide-react";
 
 const Routes = () => {
   const LandingPage = lazy(
@@ -72,12 +73,13 @@ const Routes = () => {
   return (
     <Suspense
       fallback={
-        <div className="loadingContainer">
+        <div className="loadingContainer flex flex-col">
           <img
             src={AppLoader}
             alt="vadmin logo"
             className="w-[18rem] h-24"
           />
+          <Loader2 size={70} color="white"/>
         </div>
       }
     >
