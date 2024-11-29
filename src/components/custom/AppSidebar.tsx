@@ -52,12 +52,12 @@ export function AppSidebar() {
   const itemsClients = [
     {
       title: "labels.clients",
-      url: ROUTES.SCAN_CARD,
+      url: "#",
       icon: UserCheck,
     },
     {
       title: "labels.payments",
-      url: ROUTES.LIST_CARS,
+      url: "#",
       icon: DollarSign,
     },
   ];
