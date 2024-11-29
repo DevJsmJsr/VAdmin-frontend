@@ -50,7 +50,7 @@ const Routes = () => {
           ),
         },
         {
-          path: ROUTES.CAR_CHECKING,
+          path: ROUTES.SCAN_CARD,
           element: (
             <PrivateRoute module={{ title: "routes.scan_card" }}>
               <CarChecking />

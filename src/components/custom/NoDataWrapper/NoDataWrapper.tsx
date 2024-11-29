@@ -7,11 +7,11 @@ const NoDataWrapper = () => {
   return (
     <div className="d-flex flex-column align-items-center justify-content-center my-3 w-100">
       <div className="mb-2">
-        <ArchiveX size={60} />
+        <ArchiveX size={60} strokeWidth={1} className='m-auto'/>
       </div>
       <div className="text-center">
-        <p className="fw-bold">{t('label.no_data')}</p>
-        <p>{t('components.noData_desc')}</p>
+        <p className="fw-bold">{t('labels.no_data')}</p>
+        <p>{t('labels.no_data_description')}</p>
       </div>
     </div>
   );

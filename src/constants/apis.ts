@@ -3,4 +3,5 @@ export const APIS = {
   CORE_USER: '/api/core/users/',
   LOAD_PC: '/api/core/read-property-card/',
   CHECK_PC_AZURE: '/api/core/check-property-card/',
+  LIST_VEHICLES: '/api/core/vehicle/',
 } as const;

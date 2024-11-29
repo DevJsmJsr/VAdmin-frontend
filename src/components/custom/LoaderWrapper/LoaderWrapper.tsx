@@ -25,8 +25,8 @@ const LoaderWrapper = ({
     <>
       {isDoingRequest ? (
         <div className="my-1 d-flex flex-column align-items-center justify-content-center">
-          <Loader size={50} className="animate-spin" />
-          <p className="mt-2 text-wrap">{t(message)}</p>
+          <Loader size={50} className="animate-spin m-auto" />
+          <p className="mt-2 text-wrap text-center">{t(message)}</p>
         </div>
       ) : (
         <>{typeValidation ? children : <NoDataWrapper />}</>

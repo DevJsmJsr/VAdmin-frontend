@@ -32,12 +32,12 @@ export function AppSidebar() {
   const items = [
     {
       title: "labels.scan_card",
-      url: ROUTES.CAR_CHECKING,
+      url: ROUTES.SCAN_CARD,
       icon: IdCard,
     },
     {
       title: "Vehiculos",
-      url: "#",
+      url: ROUTES.LIST_CARS,
       icon: CarFrontIcon,
     },
     {
