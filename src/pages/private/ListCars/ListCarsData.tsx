@@ -29,6 +29,9 @@ export const listVehicleColumns: ColumnDef<ListVehiclesResponse>[] = [
           <DropdownMenuItem onClick={() => alert("hola")}>
             Iniciar revisión
           </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => alert("hola")}>
+            Historial de revisiones
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     ),
@@ -38,11 +41,28 @@ export const listVehicleColumns: ColumnDef<ListVehiclesResponse>[] = [
     header: () => "Placa",
   },
   {
+    accessorKey: "property_card.property_card_number",
+    header: () => "# Tarjeta propiedad",
+  },
+  {
+    accessorKey: "property_card.person.name",
+    header: () => "Propietario",
+  },
+  {
+    id: "identification",
+    accessorFn: (row) => `${row.property_card.person.document_type} ${row.property_card.person.document_number}`,
+    header: () => "Identificación",
+  },
+  {
     accessorKey: "type_vehicle",
     header: () => "Tipo",
   },
   {
     accessorKey: "model",
     header: () => "Modelo",
+  },
+  {
+    accessorKey: "color",
+    header: () => "Color",
   },
 ];

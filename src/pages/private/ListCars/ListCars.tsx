@@ -26,7 +26,6 @@ const ListCars = () => {
 
   useEffect(() => {
     obtainVehicles();
-    debugger
   }, []);
 
   return (

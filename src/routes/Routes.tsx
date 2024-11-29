@@ -79,7 +79,7 @@ const Routes = () => {
             alt="vadmin logo"
             className="w-[18rem] h-24"
           />
-          <Loader2 size={70} color="white"/>
+          <Loader2 size={70} color="white animate-spin"/>
         </div>
       }
     >

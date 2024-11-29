@@ -10,6 +10,7 @@ import {
   IdCard,
   DollarSign,
   UserCheck,
+  User2Icon,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -26,7 +27,7 @@ import {
   SidebarMenuItem,
 } from "~components/ui/sidebar";
 import { ROUTES } from "~constants/appRoutes";
-import AppLogo from '~assets/vadmin_black.svg';
+import AppLogo from "~assets/vadmin_black.svg";
 
 export function AppSidebar() {
   const { t } = useTranslation();
@@ -65,11 +66,7 @@ export function AppSidebar() {
     <Sidebar>
       <SidebarHeader>
         <NavLink to={ROUTES.PLATFORM} className="m-auto">
-          <img
-            src={AppLogo}
-            alt="vadmin logo"
-            className="w-[12rem] h-24"
-          />
+          <img src={AppLogo} alt="vadmin logo" className="w-[12rem] h-24" />
         </NavLink>
       </SidebarHeader>
       <SidebarContent>
@@ -111,11 +108,14 @@ export function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton onClick={() => {
-                  localStorage.clear();
-                  navigate(ROUTES.LOGIN);
-                }}>
-                  <LogOut />{t("labels.logout")}
+            <SidebarMenuButton
+              onClick={() => {
+                localStorage.clear();
+                navigate(ROUTES.LOGIN);
+              }}
+            >
+              <LogOut />
+              {t("labels.logout")}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

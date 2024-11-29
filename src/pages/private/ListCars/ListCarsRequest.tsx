@@ -21,7 +21,6 @@ interface RequestProps {
 }
 
 export const listVehiclesRequest = ({ t, params, setVehicles }: RequestProps) => {
-  debugger
   sendRequest<ListVehicles>({
     url: APIS.LIST_VEHICLES,
     method: "get",

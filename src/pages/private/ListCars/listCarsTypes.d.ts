@@ -8,4 +8,10 @@ export interface ListVehiclesResponse {
   fuel_type: string;
   kilometric: string;
   property_card_id: string;
+  property_card: {
+    person:{ 
+      document_type: string,
+      document_number: string
+    }
+  }
 }
