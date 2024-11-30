@@ -20,6 +20,7 @@ const Routes = () => {
   const Home = lazy(() => import("~pages/private/Home/Home"));
   const CarChecking = lazy(() => import("~pages/private/CarChecking/CarChecking"));
   const ListCar = lazy(() => import("~pages/private/ListCars/ListCars"));
+  const CarMaintenance= lazy(() => import("~pages/private/CarMaintenance/CarMaintenance"));
 
   const router = createBrowserRouter([
     {
@@ -66,6 +67,14 @@ const Routes = () => {
             </PrivateRoute>
           ),
         },
+        {
+          path: ROUTES.CAR_MAINTENANCE,
+          element: (
+            <PrivateRoute module={{ title: "routes.car_maintenance" }}>
+              <CarMaintenance/>
+            </PrivateRoute>
+          ),
+        },
       ],
     },
   ]);
@@ -79,7 +88,7 @@ const Routes = () => {
             alt="vadmin logo"
             className="w-[18rem] h-24"
           />
-          <Loader2 size={70} color="white animate-spin"/>
+          <Loader2 size={70} color="white" className="animate-spin"/>
         </div>
       }
     >

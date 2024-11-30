@@ -85,6 +85,15 @@ const InputHandler = ({
             break;
           case "number":
           case "date":
+            InputDisplayed = (
+              <Input
+                {...field}
+                type={type}
+                placeholder={t(placeholder!)}
+                disabled={disabled}
+              />
+            );
+            break;
           case "dropzone":
             InputDisplayed = (
               <InputDropzone

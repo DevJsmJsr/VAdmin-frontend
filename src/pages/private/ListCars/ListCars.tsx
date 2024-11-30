@@ -12,10 +12,8 @@ import BasicDialog from "~components/custom/Dialog/BasicDialog/BasicDialog";
 const ListCars = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { isDoingRequest } = useAppStorage.getState();
 
   const [params, setParams] = useState({ length: 5, page: 0 });
-  const [rowSelected, setRowSelected] = useState('none');
   const [vehicles, setVehicles] = useState<Registries<ListVehiclesResponse>>({
     data: [],
     isSearching: false,
@@ -30,15 +28,9 @@ const ListCars = () => {
     obtainVehicles();
   }, []);
 
-  const availableDialogs: Record<string, JSX.Element> = {
-    history:(
-      <BasicDialog/>
-    )
-  }
-
   return (
     <>
-    <DataTable columns={listVehicleColumns({setRowSelected})} data={vehicles.data} />
+    <DataTable columns={listVehicleColumns({navigate})} data={vehicles.data} />
     </>
   );
 };

@@ -8,6 +8,18 @@
     "month":"mes",
     "vehicle":"vehiculo",
     "app_name": "VAdmin",
+    "name":"Nombre",
+    "identification": "Identificación",
+    "number_plate": "Placa",
+    "brand": "Marca",
+    "product_added_image": "Soporte del producto añadido",
+    "recommendation": "Recomendación",
+    "product_name": "Nombre del producto",
+    "maintenance_type": "Tipo de mantenimiento",
+    "history": "Historial",
+    "product_expiration_date": "Fecha de expiracion",
+    "color": "Color",
+    "card_id": "# Tarjeta prop.",
     "login": "login",
     "status_vehicle":"te permite conocer el estado de tu",
     "home":"Inicio",
@@ -57,6 +69,7 @@
   "routes":{
     "home": "Inicio",
     "car_checking": "Revisión automovil",
-    "scan_card": "Escanear tarjeta"
+    "scan_card": "Escanear tarjeta",
+    "car_maintenance": "Mantenimiento"
   }
 }

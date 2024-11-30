@@ -12,8 +12,9 @@ import {
   DropdownMenuTrigger,
 } from "~components/ui/dropdown-menu";
 import { Button } from "~components/ui/button";
+import { ROUTES } from "~constants/appRoutes";
 
-export const listVehicleColumns = ({setRowSelected}): ColumnDef<ListVehiclesResponse>[] => [
+export const listVehicleColumns = ({navigate}): ColumnDef<ListVehiclesResponse>[] => [
   {
     id: "actions",
     cell: ({ row }) => (
@@ -27,15 +28,15 @@ export const listVehicleColumns = ({setRowSelected}): ColumnDef<ListVehiclesResp
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Acciones</DropdownMenuLabel>
           <DropdownMenuItem onClick={() => {
-            setRowSelected(row)
+            navigate(ROUTES.CAR_MAINTENANCE, { state: row.original });
           }}>
             Iniciar revisión
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() =>{
+          {/* <DropdownMenuItem onClick={() =>{
             setRowSelected(row)
           }}>
             Historial
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
         </DropdownMenuContent>
       </DropdownMenu>
     ),

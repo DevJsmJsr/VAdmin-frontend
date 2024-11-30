@@ -7,6 +7,7 @@ const privateRoutes = {
   PLATFORM: '/platform',
   SCAN_CARD: '/platform/scan-card',
   LIST_CARS: '/platform/list-cars',
+  CAR_MAINTENANCE: '/platform/car-maintenance',
   HOME: '/home',
 };
 
