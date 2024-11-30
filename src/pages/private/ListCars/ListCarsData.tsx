@@ -13,7 +13,7 @@ import {
 } from "~components/ui/dropdown-menu";
 import { Button } from "~components/ui/button";
 
-export const listVehicleColumns: ColumnDef<ListVehiclesResponse>[] = [
+export const listVehicleColumns = ({setRowSelected}): ColumnDef<ListVehiclesResponse>[] => [
   {
     id: "actions",
     cell: ({ row }) => (
@@ -26,11 +26,15 @@ export const listVehicleColumns: ColumnDef<ListVehiclesResponse>[] = [
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Acciones</DropdownMenuLabel>
-          <DropdownMenuItem onClick={() => alert("hola")}>
+          <DropdownMenuItem onClick={() => {
+            setRowSelected(row)
+          }}>
             Iniciar revisión
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => alert("hola")}>
-            Historial de revisiones
+          <DropdownMenuItem onClick={() =>{
+            setRowSelected(row)
+          }}>
+            Historial
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
@@ -50,7 +54,8 @@ export const listVehicleColumns: ColumnDef<ListVehiclesResponse>[] = [
   },
   {
     id: "identification",
-    accessorFn: (row) => `${row.property_card.person.document_type} ${row.property_card.person.document_number}`,
+    accessorFn: (row) =>
+      `${row.property_card.person.document_type} ${row.property_card.person.document_number}`,
     header: () => "Identificación",
   },
   {
