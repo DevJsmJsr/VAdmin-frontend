@@ -1,4 +1,5 @@
 export interface ListVehiclesResponse {
+  pk: string;
   number_plate: string;
   model: string;
   brand: string;
@@ -8,6 +9,7 @@ export interface ListVehiclesResponse {
   fuel_type: string;
   kilometric: string;
   property_card_id: string;
+  initial_scan: string;
   property_card: {
     person:{ 
       document_type: string,

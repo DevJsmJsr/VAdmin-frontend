@@ -21,6 +21,7 @@ const Routes = () => {
   const CarChecking = lazy(() => import("~pages/private/CarChecking/CarChecking"));
   const ListCar = lazy(() => import("~pages/private/ListCars/ListCars"));
   const CarMaintenance= lazy(() => import("~pages/private/CarMaintenance/CarMaintenance"));
+  const RegisterComponents= lazy(() => import("~pages/private/RegisterComponents/RegisterComponents"));
 
   const router = createBrowserRouter([
     {
@@ -72,6 +73,14 @@ const Routes = () => {
           element: (
             <PrivateRoute module={{ title: "routes.car_maintenance" }}>
               <CarMaintenance/>
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: ROUTES.REGISTER_COMPONENTS,
+          element: (
+            <PrivateRoute module={{ title: "routes.register_components" }}>
+              <RegisterComponents/>
             </PrivateRoute>
           ),
         },

@@ -21,7 +21,7 @@ const ListCars = () => {
   });
 
   const obtainVehicles = () => {
-    listVehiclesRequest({ t, params, setVehicles });
+    listVehiclesRequest({ params, setVehicles });
   };
 
   useEffect(() => {

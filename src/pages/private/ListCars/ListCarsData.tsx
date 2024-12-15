@@ -14,7 +14,9 @@ import {
 import { Button } from "~components/ui/button";
 import { ROUTES } from "~constants/appRoutes";
 
-export const listVehicleColumns = ({navigate}): ColumnDef<ListVehiclesResponse>[] => [
+export const listVehicleColumns = ({
+  navigate,
+}): ColumnDef<ListVehiclesResponse>[] => [
   {
     id: "actions",
     cell: ({ row }) => (
@@ -27,16 +29,25 @@ export const listVehicleColumns = ({navigate}): ColumnDef<ListVehiclesResponse>[
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuLabel>Acciones</DropdownMenuLabel>
-          <DropdownMenuItem onClick={() => {
-            navigate(ROUTES.CAR_MAINTENANCE, { state: row.original });
-          }}>
-            Iniciar revisión
-          </DropdownMenuItem>
-          {/* <DropdownMenuItem onClick={() =>{
-            setRowSelected(row)
-          }}>
-            Historial
-          </DropdownMenuItem> */}
+          {row.original.initial_scan === "COMPLETED" ? (
+            <DropdownMenuItem
+              onClick={() => {
+                navigate(ROUTES.CAR_MAINTENANCE, { state: row.original });
+              }}
+            >
+              Iniciar revisión
+            </DropdownMenuItem>
+          ) : (
+            <DropdownMenuItem
+              onClick={() => {
+                navigate(ROUTES.REGISTER_COMPONENTS, {
+                  state: { vehicle_id: row.original.pk },
+                });
+              }}
+            >
+              Registrar componentes
+            </DropdownMenuItem>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     ),

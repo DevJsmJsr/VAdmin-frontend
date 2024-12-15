@@ -70,6 +70,7 @@
     "home": "Inicio",
     "car_checking": "Revisión automovil",
     "scan_card": "Escanear tarjeta",
-    "car_maintenance": "Mantenimiento"
+    "car_maintenance": "Mantenimiento",
+    "register_components": "Registro de componentes"
   }
 }

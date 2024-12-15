@@ -15,12 +15,11 @@ interface ListVehicles {
 }
 
 interface RequestProps {
-  t: TFunction<'translation', undefined>;
   params: PaginatedParams;
   setVehicles: Dispatch<SetStateAction<Registries<ListVehiclesResponse>>>;
 }
 
-export const listVehiclesRequest = ({ t, params, setVehicles }: RequestProps) => {
+export const listVehiclesRequest = ({ params, setVehicles }: RequestProps) => {
   sendRequest<ListVehicles>({
     url: APIS.LIST_VEHICLES,
     method: "get",
