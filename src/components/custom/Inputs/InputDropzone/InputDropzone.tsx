@@ -33,7 +33,6 @@ interface Props extends CommonInputProps {
 const InputDropzone = ({
   extensions,
   disabled = false,
-  hookError,
   hookOnChange = () => {},
   onInputChange = () => {},
 }: Props) => {

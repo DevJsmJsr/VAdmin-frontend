@@ -11,6 +11,7 @@ import { Input } from "./input";
 import { useTranslation } from "react-i18next";
 import InputDropzone from "~components/custom/Inputs/InputDropzone/InputDropzone";
 import { FileWithPath } from "react-dropzone";
+import InputSelect from "~components/custom/Inputs/InputSelect/InputSelect";
 
 export type InputTypeOptions =
   | "text"
@@ -54,6 +55,8 @@ const InputHandler = ({
   extensions,
   descriptionInput,
   control,
+  options,
+  isMulti,
   onInputChange = () => {},
 }: InputHandlerProps) => {
   debugger
@@ -113,7 +116,21 @@ const InputHandler = ({
               />
             );
             break;
-          /* case "datetime-local":
+          case "select":
+            InputDisplayed = (
+              <InputSelect
+                {...field}
+                name={name}
+                placeholder={placeholder}
+                options={options}
+                isMulti={isMulti}
+                disabled={disabled}
+                onInputChange={onInputChange}
+                
+              />
+            );
+            break;
+            /* case "datetime-local":
           case "checkbox":
             InputDisplayed = (
               <InputCheckbox
@@ -146,28 +163,6 @@ const InputHandler = ({
                 hookError={error}
                 hookOnChange={onChange}
                 onInputChange={onInputChange}
-              />
-            );
-            break;
-          case "select":
-            InputDisplayed = (
-              <InputSelect
-                name={name}
-                label={label}
-                placeholder={placeholder}
-                labelHelper={labelHelper}
-                options={options}
-                isMulti={isMulti}
-                defaultValue={defaultValue as SelectData | SelectData[]}
-                iconName={iconName}
-                isSearchable={isSearchable}
-                disabled={disabled}
-                required={rules?.required?.value ?? false}
-                design={design}
-                hookError={error}
-                hookOnChange={onChange}
-                onInputChange={onInputChange}
-                onEventChange={onEventChange}
               />
             );
             break;
