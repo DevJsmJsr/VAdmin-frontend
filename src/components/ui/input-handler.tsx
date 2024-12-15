@@ -37,6 +37,7 @@ export interface InputHandlerProps {
   disabled?: boolean;
   link?: string;
   extensions?: { string: []; };
+  className?: string;
   design?: string;
   isHidden?: boolean;
   onInputChange?: (value: string | boolean | FileWithPath | null) => void;
@@ -48,12 +49,14 @@ const InputHandler = ({
   label,
   placeholder,
   disabled = false,
+  className = "",
   design,
   extensions,
   descriptionInput,
   control,
   onInputChange = () => {},
 }: InputHandlerProps) => {
+  debugger
   const { t } = useTranslation();
   return (
     <FormField
@@ -67,6 +70,7 @@ const InputHandler = ({
             InputDisplayed = (
               <Input
                 {...field}
+                className={className}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}
@@ -77,6 +81,7 @@ const InputHandler = ({
             InputDisplayed = (
               <Input
                 {...field}
+                className={className}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}
@@ -88,6 +93,7 @@ const InputHandler = ({
             InputDisplayed = (
               <Input
                 {...field}
+                className={className}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}

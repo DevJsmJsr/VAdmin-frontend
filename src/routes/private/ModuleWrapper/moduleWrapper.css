@@ -19,6 +19,7 @@
 
 .moduleWrapper_childrenContainer {
   height: 85vh !important;
+  padding: 0px 5px;
   overflow-y: auto;
   overflow-x: hidden;
 }

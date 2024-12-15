@@ -11,9 +11,9 @@ const Separator = React.forwardRef<
     { className, orientation = "horizontal", decorative = true, title, subtitle, ...props },
     ref
   ) => (
-    <div>
+    <div className="mt-8">
       {title && <h2 className="text-xl font-semibold text-gray-800 capitalize">{title}</h2>}
-      {subtitle && <p className="text-sm text-gray-500 leading-relaxed capitalize">{subtitle}</p>}
+      {subtitle && <p className="text-sm text-gray-500 leading-relaxed">{subtitle}</p>}
       <SeparatorPrimitive.Root
         ref={ref}
         decorative={decorative}

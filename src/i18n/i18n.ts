@@ -22,5 +22,5 @@ i18n
       escapeValue: false,
     },
   });
-
+export const tnl = i18n.t;
 export default i18n;

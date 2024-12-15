@@ -1,29 +1,145 @@
 import * as z from "zod";
+import { createOptions } from "~lib/utils";
 
-export const registerComponentsSchema = z.object({
+const accessoriesList = [
+  "reverse_cam",
+  "sunroof",
+  "power_mirrors",
+  "power_seats",
+  "voice_control",
+  "driven_assistance",
+  "bluetooth",
+  "air_conditioning",
+  "cruise_control",
+  "parking_sensors",
+  "anti_theft_system",
+  "alarm_system",
+  "remote_start",
+];
+const transmissionsTypes = ["AUTOMATIC", "MANUAL"];
+const engineTypes = [
+  "4 cylinders",
+  "6 cylinders",
+  "8 cylinders",
+  "V2",
+  "V6",
+  "V8",
+];
+const brakeSystem = ["DISC_BRAKE", "DRUM_BRAKE", "REGENERATIVE_BRAKE"];
+
+export const RegisterComponentsSchema = z.object({
   issueDate: z.date(),
   enrollmentDate: z.date(),
-  transitAuthority: z.string()
+  transitAuthority: z.string(),
+  accessories: z.enum([
+    "reverse_cam",
+    "sunroof",
+    "power_mirrors",
+    "power_seats",
+    "voice_control",
+    "driven_assistance",
+    "bluetooth",
+    "air_conditioning",
+    "cruise_control",
+    "parking_sensors",
+    "anti_theft_system",
+    "alarm_system",
+    "remote_start",
+  ]),
+  doorsNumber: z.number(),
+  kilometric: z.number(),
+
+  transmissionType: z.enum(["AUTOMATIC", "MANUAL"]),
+  engineType: z.enum([
+    "4 cylinders",
+    "6 cylinders",
+    "8 cylinders",
+    "V2",
+    "V6",
+    "V8",
+  ]),
+  horsePower: z.number(),
+  brakeSystem: z.enum(["DISC_BRAKE", "DRUM_BRAKE", "REGENERATIVE_BRAKE"]),
 });
 
-
-export const registerComponentsInputs = () =>[
+export const registerComponentsInputs = () => [
   {
     id: "issueDate",
     label: "labels.issue_date",
     name: "issue_date",
     type: "date",
+    block: "propertyCard",
   },
   {
     id: "enrollmentDate",
     label: "labels.enrollment_date",
     name: "enrollment_date",
     type: "date",
+    block: "propertyCard",
   },
   {
     id: "transitAuthority",
     label: "labels.transit_authority",
+    placeholder: "labels.transit_authority",
     name: "transit_authority",
-    type: "date",
+    type: "text",
+    className:"w-64",
+    block: "propertyCard",
   },
-]
+  {
+    id: "accessories",
+    label: "labels.accessories",
+    name: "accessories",
+    type: "select",
+    isMulti: true,
+    options: createOptions(accessoriesList),
+    block: "accessories",
+  },
+  {
+    id: "doorsNumber",
+    label: "labels.doors_number",
+    name: "doors_number",
+    placeholder: "labels.doors_number",
+    type: "number",
+    block: "accessories",
+  },
+  {
+    id: "kilometric",
+    label: "labels.kilometric",
+    name: "kilometric",
+    type: "number",
+    placeholder: "labels.kilometric",
+    block: "accessories",
+  },
+  {
+    id: "transmissionType",
+    label: "labels.transmission_type",
+    name: "transmissionType",
+    options: createOptions(transmissionsTypes),
+    type: "select",
+    block: "engine",
+  },
+  {
+    id: "engineType",
+    label: "labels.engine_type",
+    name: "engine_type",
+    options: createOptions(engineTypes),
+    type: "select",
+    block: "engine",
+  },
+  {
+    id: "horsePower",
+    label: "labels.horse_power",
+    name: "horse_power",
+    type: "numeric",
+    block: "engine",
+  },
+  {
+    id: "brakeSystem",
+    label: "labels.brake_system",
+    name: "brake_system",
+    options: brakeSystem,
+    type: "select",
+    block: "engine",
+  },
+];

@@ -62,8 +62,15 @@
     "vehicles": "Vehiculos",
     "issue_date": "Fecha expedición",
     "enrollment_date": "Fecha de matricula",
-    "transit_authority": "autoridad de tránsito"
-
+    "transit_authority": "Autoridad de tránsito",
+    "register_comp_pc": "Tarjeta de propiedad",
+    "register_comp_pc_subtitle": "Parece que faltan algunos datos en la tarjeta de propiedad. Te invitamos a completarlos en este espacio.",
+    "register_comp_accessories": "Accesorios",
+    "register_comp_accessories_subtitle": "Selecciona y añade los accesorios que forman parte de este vehículo. Iremos adjuntándolos conforme los elijas.",
+    "register_comp_engine": "Motor",
+    "register_comp_engine_subtitle": "Echemos un vistazo bajo el capó de este vehículo para conocer sus partes principales y su funcionamiento.",
+    "doors_number":"Número de puertas",
+    "kilometric":"Kilometraje"
   },
   "placeholders": {
     "email":"Correo electronico",
