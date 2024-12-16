@@ -92,6 +92,7 @@ export const registerComponentsInputs = () => [
     name: "accessories",
     type: "select",
     isMulti: true,
+    placeholder: "labels.accessories",
     options: createOptions(accessoriesList),
     block: "accessories",
   },

@@ -70,6 +70,10 @@
     "register_comp_engine": "Motor",
     "register_comp_engine_subtitle": "Echemos un vistazo bajo el capó de este vehículo para conocer sus partes principales y su funcionamiento.",
     "doors_number":"Número de puertas",
+    "accessories":"Accesorios",
+    "transmission_type":"Tipo de transmision",
+    "engine_type":"Tipo de motor",
+    "brake_system":"Sistema de frenos",
     "kilometric":"Kilometraje"
   },
   "placeholders": {

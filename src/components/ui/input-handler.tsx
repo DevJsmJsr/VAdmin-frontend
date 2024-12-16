@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import InputDropzone from "~components/custom/Inputs/InputDropzone/InputDropzone";
 import { FileWithPath } from "react-dropzone";
 import InputSelect from "~components/custom/Inputs/InputSelect/InputSelect";
+import { SelectData } from "~types/CommonTypes";
 
 export type InputTypeOptions =
   | "text"
@@ -26,40 +27,45 @@ export type InputTypeOptions =
   | "switch";
 
 export interface InputHandlerProps {
-  id?: string | number;
-  type: InputTypeOptions;
-  descriptionInput: string;
-  name: string;
-  label?: string;
-  placeholder?: string;
-  control?: Control;
-  isSearchable?: boolean;
-  isMulti?: boolean;
-  disabled?: boolean;
-  link?: string;
-  extensions?: { string: []; };
   className?: string;
+  control?: Control;
+  descriptionInput: string;
   design?: string;
-  isHidden?: boolean;
+  disabled?: boolean;
+  extensions?: { string: []; };
+  isMulti?: boolean;
+  isLoading?: boolean;
+  isClearable?: boolean;
+  isSearchable?: boolean;
+  label?: string;
+  name: string;
+  options?: SelectData[];
+  placeholder?: string;
+  type: InputTypeOptions;
   onInputChange?: (value: string | boolean | FileWithPath | null) => void;
+  onEventChange?: (value: SelectData | SelectData[]) => void;
 }
 
 const InputHandler = ({
-  type,
-  name,
-  label,
-  placeholder,
-  disabled = false,
   className = "",
-  design,
-  extensions,
-  descriptionInput,
   control,
-  options,
+  descriptionInput,
+  design,
+  disabled = false,
+  extensions,
   isMulti,
+  isSearchable,
+  isLoading,
+  isClearable,
+  label,
+  name,
+  options = [],
+  placeholder,
+  type,
   onInputChange = () => {},
+  onEventChange = () => {},
 }: InputHandlerProps) => {
-  debugger
+
   const { t } = useTranslation();
   return (
     <FormField
@@ -120,13 +126,17 @@ const InputHandler = ({
             InputDisplayed = (
               <InputSelect
                 {...field}
-                name={name}
-                placeholder={placeholder}
-                options={options}
-                isMulti={isMulti}
                 disabled={disabled}
+                isClearable={isClearable}
+                isLoading={isLoading}
+                isMulti={isMulti}
+                isSearchable={isSearchable}
+                name={name}
+                options={options}
+                placeholder={placeholder}
+                hookOnChange={field.onChange}
                 onInputChange={onInputChange}
-                
+                onEventChange={onEventChange}
               />
             );
             break;
