@@ -39,7 +39,9 @@ const RegisterComponents = () => {
     registerComponentsInputs()
       .filter((input) => input.block === blockName)
       .map((input) => (
-        <InputHandler {...input} key={input.id} control={form.control} />
+        <div className={input.className}>
+          <InputHandler {...input} key={input.id} control={form.control} />
+        </div>
       ));
 
   const onSubmitRegisterComponents = (
@@ -55,19 +57,25 @@ const RegisterComponents = () => {
             title={t("labels.register_comp_pc")}
             subtitle={t("labels.register_comp_pc_subtitle")}
           />
-          <div className="mt-3 flex items-center gap-4">{renderFields("propertyCard")}</div>
+          <div className="mt-3 flex items-center gap-1">
+            {renderFields("propertyCard")}
+          </div>
           {/* Accessories inputs */}
           <Separator
             title={t("labels.register_comp_accessories")}
             subtitle={t("labels.register_comp_accessories_subtitle")}
           />
-          <div className="mt-5 flex items-center gap-4">{renderFields("accessories")}</div>
+          <div className="mt-3 flex flex-wrap gap-1">
+            {renderFields("accessories")}
+          </div>
           {/* Engine inputs */}
           <Separator
             title={t("labels.register_comp_engine")}
             subtitle={t("labels.register_comp_engine_subtitle")}
           />
-          <div className="mt-5 flex items-center gap-10">{renderFields("engine")}</div>
+          <div className="mt-5 flex items-center gap-1">
+            {renderFields("engine")}
+          </div>
         </form>
       </Form>
     </>

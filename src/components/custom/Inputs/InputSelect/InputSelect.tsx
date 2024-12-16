@@ -70,10 +70,11 @@ const InputSelect = ({
       fontSize: "0.875rem",
     }),
   };
-
+debugger
   return (
     <div className={className}>
       <Select
+        className="w-full"
         styles={customStyles}
         closeMenuOnSelect={!isMulti}
         components={animatedComponents}

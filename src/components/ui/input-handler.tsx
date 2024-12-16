@@ -127,6 +127,7 @@ const InputHandler = ({
               <InputSelect
                 {...field}
                 disabled={disabled}
+                className={className}
                 isClearable={isClearable}
                 isLoading={isLoading}
                 isMulti={isMulti}
