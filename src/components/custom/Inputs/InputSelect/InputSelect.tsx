@@ -45,7 +45,6 @@ const InputSelect = ({
       ...provided,
       backgroundColor: "white",
       borderRadius: "6px",
-      maxHeight: "2.25rem",
       borderWidth: "1px",
       borderColor: state.isFocused ? "#e5e7eb" : "#e5e7eb",
       boxShadow: state.isFocused ? "0 0 0 1px black" : "none",
@@ -88,7 +87,7 @@ debugger
         name={name}
         options={optionsTranslated}
         placeholder={t(placeholder!)}
-        noOptionsMessage={() => t("form_errors.write_to_find_conincedences")}
+        noOptionsMessage={() => t("labels.not_find_conincedences")}
         onChange={(data) => {
           let inputValue;
           if (Array.isArray(data)) {

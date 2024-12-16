@@ -16,6 +16,6 @@ export const cleanObject = (data: object | []): object =>
   });
 
 export const createOptions = (array: string[]) =>
-  array.map((item) => ({ label: tnl(item), value: item }));
+  array.map((item) => ({ label: tnl(`labels.${item.toLowerCase()}`), value: item }));
 
 export { type RequestParams, default as sendRequest } from './sendRequest';

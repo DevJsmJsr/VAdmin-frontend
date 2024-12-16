@@ -18,9 +18,9 @@ const accessoriesList = [
 ];
 const transmissionsTypes = ["AUTOMATIC", "MANUAL"];
 const engineTypes = [
-  "4 cylinders",
-  "6 cylinders",
-  "8 cylinders",
+  "4_cylinders",
+  "6_cylinders",
+  "8_cylinders",
   "V2",
   "V6",
   "V8",
