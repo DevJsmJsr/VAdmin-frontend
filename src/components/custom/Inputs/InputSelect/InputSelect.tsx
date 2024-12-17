@@ -69,7 +69,7 @@ const InputSelect = ({
       fontSize: "0.875rem",
     }),
   };
-debugger
+
   return (
     <div className={className}>
       <Select

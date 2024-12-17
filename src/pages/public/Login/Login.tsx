@@ -8,27 +8,28 @@ import {
   CardHeader,
   CardTitle,
 } from "~components/ui/card";
-import AppLogoInverse from "~assets/vadmin_black.svg";
-import LoginBackground from "~assets/login_background.svg";
-import { useTranslation } from "react-i18next";
-import InputHandler from "~components/ui/input-handler";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { loginInputs, LoginSchema } from "./LoginData";
-import { z } from "zod";
 import { Form } from "~components/ui/form";
 import { getUserValidation } from "./loginRequest";
+import { loginInputs, LoginSchema } from "./LoginData";
 import { useAppStorage } from '~store/useStore';
+import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import AppLogoInverse from "~assets/vadmin_black.svg";
+import InputHandler from "~components/ui/input-handler";
+import LoginBackground from "~assets/login_background.svg";
 
 export interface LoginDataProps {
-  username: string;
+  username: string | number;
   password: string;
 }
+type FormData = z.infer<typeof LoginSchema>;
 
 const Login = () => {
   const { t } = useTranslation();
   const { isDoingRequest } = useAppStorage.getState();
-  const form = useForm({
+  const form = useForm<FormData>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
       username: "",

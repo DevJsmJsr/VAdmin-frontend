@@ -1,7 +1,10 @@
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
-import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
+import {
+  Form,
+} from "~components/ui/form"
+
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import { Separator } from "~components/ui/separator";
@@ -10,8 +13,8 @@ import {
   registerComponentsInputs,
   RegisterComponentsSchema,
 } from "./RegisterComponentsData";
-import { Form } from "~components/ui/form";
 import InputHandler from "~components/ui/input-handler";
+import { Button } from "~components/ui/button";
 
 type FormData = z.infer<typeof RegisterComponentsSchema>;
 
@@ -19,13 +22,13 @@ const RegisterComponents = () => {
   const { t } = useTranslation();
   const { isDoingRequest } = useAppStorage.getState();
   const { state: vehicle } = useLocation();
+
   const form = useForm<FormData>({
     resolver: zodResolver(RegisterComponentsSchema),
     defaultValues: {
-      issueDate: undefined,
-      enrollmentDate: undefined,
+      issueDate: new Date(),
+      enrollmentDate: new Date(),
       transitAuthority: "",
-      accessories: undefined,
       doorsNumber: undefined,
       kilometric: undefined,
       transmissionType: undefined,
@@ -33,20 +36,20 @@ const RegisterComponents = () => {
       horsePower: undefined,
       brakeSystem: undefined,
     },
-  });
-
+  })
+  
   const renderFields = (blockName: string) =>
     registerComponentsInputs()
       .filter((input) => input.block === blockName)
-      .map((input) => (
-        <div className={input.className}>
+      .map((input, index) => (
+        <div className={input.className} key={`${index}_${input.id}`}>
           <InputHandler {...input} key={input.id} control={form.control} />
         </div>
       ));
 
-  const onSubmitRegisterComponents = (
-    data: z.infer<typeof RegisterComponentsSchema>
-  ) => {};
+  const onSubmitRegisterComponents = (values: z.infer<typeof RegisterComponentsSchema>) => {
+    debugger
+  };
 
   return (
     <>
@@ -75,6 +78,15 @@ const RegisterComponents = () => {
           />
           <div className="mt-5 flex items-center gap-1">
             {renderFields("engine")}
+          </div>
+          <div className="flex">
+          <Button
+            isDoingRequest={isDoingRequest}
+            type="submit"
+            className="w-64 mt-10"
+          >
+            {t("labels.register_components")}
+          </Button>
           </div>
         </form>
       </Form>

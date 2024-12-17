@@ -1,4 +1,4 @@
-import * as z from "zod";
+import * as z from 'zod'
 import { createOptions } from "~lib/utils";
 
 const accessoriesList = [
@@ -31,6 +31,8 @@ export const RegisterComponentsSchema = z.object({
   issueDate: z.date(),
   enrollmentDate: z.date(),
   transitAuthority: z.string(),
+  doorsNumber: z.number(),
+  kilometric: z.number(),
   accessories: z.enum([
     "reverse_cam",
     "sunroof",
@@ -46,9 +48,6 @@ export const RegisterComponentsSchema = z.object({
     "alarm_system",
     "remote_start",
   ]),
-  doorsNumber: z.number(),
-  kilometric: z.number(),
-
   transmissionType: z.enum(["AUTOMATIC", "MANUAL"]),
   engineType: z.enum([
     "4 cylinders",
@@ -109,7 +108,7 @@ export const registerComponentsInputs = () => [
   {
     id: "kilometric",
     label: "labels.kilometric",
-    name: "kilometric",
+    name: "km",
     type: "number",
     className: "w-64",
     placeholder: "labels.kilometric",

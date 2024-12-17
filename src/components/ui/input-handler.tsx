@@ -5,14 +5,16 @@ import {
   FormLabel,
   FormDescription,
   FormMessage,
-} from "./form";
-import { type Control } from "react-hook-form";
+} from "~components/ui/form";
+
 import { Input } from "./input";
 import { useTranslation } from "react-i18next";
 import InputDropzone from "~components/custom/Inputs/InputDropzone/InputDropzone";
 import { FileWithPath } from "react-dropzone";
 import InputSelect from "~components/custom/Inputs/InputSelect/InputSelect";
 import { SelectData } from "~types/CommonTypes";
+import { Control } from "react-hook-form";
+
 
 export type InputTypeOptions =
   | "text"
@@ -47,7 +49,6 @@ export interface InputHandlerProps {
 }
 
 const InputHandler = ({
-  className = "",
   control,
   descriptionInput,
   design,
@@ -79,7 +80,6 @@ const InputHandler = ({
             InputDisplayed = (
               <Input
                 {...field}
-                className={className}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}
@@ -90,7 +90,6 @@ const InputHandler = ({
             InputDisplayed = (
               <Input
                 {...field}
-                className={className}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}
@@ -98,11 +97,19 @@ const InputHandler = ({
             );
             break;
           case "number":
+            InputDisplayed = (
+              <Input
+                {...field}
+                type={type}
+                placeholder={t(placeholder!)}
+                disabled={disabled}
+              />
+            );
+            break;
           case "date":
             InputDisplayed = (
               <Input
                 {...field}
-                className={className}
                 type={type}
                 placeholder={t(placeholder!)}
                 disabled={disabled}
@@ -125,9 +132,7 @@ const InputHandler = ({
           case "select":
             InputDisplayed = (
               <InputSelect
-                {...field}
                 disabled={disabled}
-                className={className}
                 isClearable={isClearable}
                 isLoading={isLoading}
                 isMulti={isMulti}
