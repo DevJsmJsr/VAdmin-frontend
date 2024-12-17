@@ -26,15 +26,16 @@ const RegisterComponents = () => {
   const form = useForm<FormData>({
     resolver: zodResolver(RegisterComponentsSchema),
     defaultValues: {
-      issueDate: new Date(),
-      enrollmentDate: new Date(),
-      transitAuthority: "",
-      doorsNumber: undefined,
-      kilometric: undefined,
-      transmissionType: undefined,
-      engineType: undefined,
-      horsePower: undefined,
-      brakeSystem: undefined,
+      issue_date: "",
+      enrollment_date: "",
+      transit_authority: "",
+      doors_number: "",
+      kilometric: "",
+      accessories: "",
+      transmission_type: "",
+      engine_type: "",
+      horse_power: "",
+      brake_system: "",
     },
   })
   
