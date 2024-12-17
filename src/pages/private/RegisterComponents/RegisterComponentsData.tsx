@@ -28,29 +28,34 @@ const engineTypes = [
 const brakeSystem = ["DISC_BRAKE", "DRUM_BRAKE", "REGENERATIVE_BRAKE"];
 
 export const RegisterComponentsSchema = z.object({
-  issue_date: z.string(),
-  enrollment_date: z.string(),
+  issue_date: z.string().min(1, "Digite un valor valido"),
+  enrollment_date: z.string().min(1, "Digite un valor valido"),
   transit_authority: z.string(),
-  doors_number: z.string(),
-  kilometric: z.string(),
-  accessories: z
+  doors_number: z
     .string()
-    .min(1, "You must select at least one option.")
+    .min(1, "Digite un valor valido")
+    .max(1, "Digite un valor valido"),
+  kilometric: z
+    .string()
+    .min(1, "Digite un valor valido")
+    .max(6, "Digite un valor valido"),
+  horse_power: z.string().min(1, "Digite un valor"),
+  accessories: z.string().min(1, "Seleccione almenos una opcion"),
+  transmission_type: z
+    .enum(["", "AUTOMATIC", "MANUAL"])
     .refine((values) => values.length > 0, {
-      message: "At least one option should be selected",
+      message: "Seleccione almenos una opcion",
     }),
-  transmission_type: z.enum(["", "AUTOMATIC", "MANUAL"]),
-  engine_type: z.enum([
-    "",
-    "4_cylinders",
-    "6_cylinders",
-    "8_cylinders",
-    "V2",
-    "V6",
-    "V8",
-  ]),
-  horse_power: z.string(),
-  brake_system: z.enum(["", "DISC_BRAKE", "DRUM_BRAKE", "REGENERATIVE_BRAKE"]),
+  engine_type: z
+    .enum(["", "4_cylinders", "6_cylinders", "8_cylinders", "V2", "V6", "V8"])
+    .refine((values) => values.length > 0, {
+      message: "Seleccione almenos una opcion",
+    }),
+  brake_system: z
+    .enum(["", "DISC_BRAKE", "DRUM_BRAKE", "REGENERATIVE_BRAKE"])
+    .refine((values) => values.length > 0, {
+      message: "Seleccione almenos una opcion",
+    }),
 });
 
 export const registerComponentsInputs = () => [
