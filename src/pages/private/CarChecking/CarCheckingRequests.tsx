@@ -55,7 +55,6 @@ export const checkAzureRequest = (
       }
     },
     catchFunction: (error) => {
-      debugger;
       if (error?.username?.[0] === USER_EXISTS) {
         toast.success(t(USER_EXISTS));
         onSuccess();

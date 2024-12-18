@@ -11,6 +11,7 @@ export interface ListVehiclesResponse {
   property_card_id: string;
   initial_scan: string;
   property_card: {
+    pk: string,
     person:{ 
       document_type: string,
       document_number: string

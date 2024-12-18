@@ -88,7 +88,7 @@ const sendRequest = async <T>({
   });
   doingRequest();
   axios(config)
-    .then((res: AxiosResponse<T, unknown>) => {
+    .then((res: AxiosResponse<T, unknown>) => {      
       thenFunction(res);
       requestFinalized();
     })

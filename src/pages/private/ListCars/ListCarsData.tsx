@@ -41,7 +41,10 @@ export const listVehicleColumns = ({
             <DropdownMenuItem
               onClick={() => {
                 navigate(ROUTES.REGISTER_COMPONENTS, {
-                  state: { vehicle_id: row.original.pk },
+                  state: {
+                    vehicle_id: row.original.pk,
+                    property_card_id: row.original.property_card.pk,
+                  },
                 });
               }}
             >

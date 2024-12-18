@@ -1,7 +1,7 @@
 import * as z from "zod";
 import { createOptions } from "~lib/utils";
 
-const accessoriesList = [
+export const accessoriesList:string[] = [
   "reverse_cam",
   "sunroof",
   "power_mirrors",
