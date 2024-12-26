@@ -26,15 +26,17 @@ const engineTypes = [
   "V8",
 ];
 const brakeSystem = ["DISC_BRAKE", "DRUM_BRAKE", "REGENERATIVE_BRAKE"];
+const doorsNumber = [
+  {label:"labels.two", value: "2"},
+  {label:"labels.three", value: "3"},
+  {label:"labels.five", value: "5"}
+];
 
 export const RegisterComponentsSchema = z.object({
   issue_date: z.string().min(1, "Digite un valor valido"),
   enrollment_date: z.string().min(1, "Digite un valor valido"),
   transit_authority: z.string(),
-  doors_number: z
-    .string()
-    .min(1, "Digite un valor valido")
-    .max(1, "Digite un valor valido"),
+  doors_number: z.string().min(1, "Seleccione almenos una opcion"),
   kilometric: z
     .string()
     .min(1, "Digite un valor valido")
@@ -98,7 +100,8 @@ export const registerComponentsInputs = () => [
     label: "labels.doors_number",
     name: "doors_number",
     placeholder: "labels.doors_number",
-    type: "number",
+    type: "select",
+    options: doorsNumber,
     className: "w-64",
     block: "accessories",
   },

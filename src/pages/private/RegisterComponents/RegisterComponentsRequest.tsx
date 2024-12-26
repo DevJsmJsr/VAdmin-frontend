@@ -4,17 +4,16 @@ import { APIS } from "~constants/apis";
 import { sendRequest } from "~lib/utils";
 
 interface RegisterComponentsProps {
-
+  pk: string;
 }
 
-interface RegisterComponents {
-
-}
+interface RegisterComponents {}
 
 export const registerComponentsRequest = (
   t: TFunction,
-  data: RegisterComponentsProps
-) => {  
+  data: RegisterComponentsProps,
+  onSuccess: () => void
+) => {
   sendRequest<RegisterComponents>({
     url: APIS.REGISTER_COMPONENTS(data.pk),
     method: "patch",
@@ -22,10 +21,14 @@ export const registerComponentsRequest = (
     thenFunction: (res) => {
       if (res.status === 200) {
         toast.success(t("labels.initial_scan_completed"));
+        onSuccess();
       }
     },
-    catchFunction: (detail) => {
-      toast.error(detail);
+    catchFunction: (error) => {
+      const errorString = Object.entries(error)
+        .map(([key, messages]) => `${key}: ${JSON.stringify(messages)}`)
+        .join("; ");
+      toast.error(errorString);
     },
   });
 };

@@ -4,7 +4,7 @@ import { z } from "zod";
 import { Form } from "~components/ui/form";
 
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Separator } from "~components/ui/separator";
 import { useAppStorage } from "~store/useStore";
 import {
@@ -15,6 +15,7 @@ import {
 import InputHandler from "~components/ui/input-handler";
 import { Button } from "~components/ui/button";
 import { registerComponentsRequest } from "./RegisterComponentsRequest";
+import { ROUTES } from "~constants/appRoutes";
 
 type FormData = z.infer<typeof RegisterComponentsSchema>;
 type Dictionary = { [key: string]: boolean };
@@ -23,6 +24,7 @@ const RegisterComponents = () => {
   const { t } = useTranslation();
   const { isDoingRequest } = useAppStorage.getState();
   const { state: vehicle } = useLocation();
+  const navigate = useNavigate();
 
   const form = useForm<FormData>({
     resolver: zodResolver(RegisterComponentsSchema),
@@ -78,7 +80,10 @@ const RegisterComponents = () => {
         ...vehicle_accessories,
       },
     };
-    registerComponentsRequest(t, dataToSend);
+    const onSuccess = () => {
+      navigate(ROUTES.LIST_CARS);
+    };
+    registerComponentsRequest(t, dataToSend, onSuccess);
   };
 
   return (
